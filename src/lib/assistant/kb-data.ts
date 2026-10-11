@@ -5,6 +5,12 @@ export const KB_CHUNKS: KbChunk[] = [
   {
     "sourceRoute": "/projects/aura",
     "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "Overview",
+    "text": "Research-driven architecture for a governed, extensible personal AI agent runtime. Personal AI agent runtime exploring how to coordinate tools and applications while keeping execution control, policy gating, and observability. Async event-driven orchestration with a governance layer; research-stage, capabilities clearly separated from plans. Designer and sole implementer: runtime kernel, orchestration, governance hooks, event bus, tests."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
     "heading": "01 / Problem",
     "text": "How can an AI system coordinate tools and applications while maintaining execution control and observability?\r\nDRAFT: expand target users (self-directed power users, researchers) before launch."
   },
@@ -31,6 +37,12 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceTitle": "AURA — Adaptive AI Operating System",
     "heading": "05 / Limitations and next steps",
     "text": "Implemented functionality is distinguished from research experiments and planned capabilities. DRAFT: enumerate both lists from the repo before launch."
+  },
+  {
+    "sourceRoute": "/projects/document-intelligence",
+    "sourceTitle": "ACORD Document Intelligence",
+    "heading": "Overview",
+    "text": "OCR and document understanding with structured extraction and model evaluation. Applied-ML pipeline for OCR, document understanding, and structured information extraction, with explicit model evaluation. DRAFT: confirm datasets, metrics, and what may be disclosed before launch. DRAFT: confirm role and contributions before launch."
   },
   {
     "sourceRoute": "/projects/document-intelligence",
@@ -65,6 +77,12 @@ export const KB_CHUNKS: KbChunk[] = [
   {
     "sourceRoute": "/projects/voice-mind",
     "sourceTitle": "Voice Mind",
+    "heading": "Overview",
+    "text": "Shipped voice-based RAG application for real-world use. Consumer AI application combining voice input with retrieval-augmented generation. DRAFT: confirm adoption figures, platforms, and stack against what is publicly verifiable before launch. DRAFT: confirm role and contributions before launch."
+  },
+  {
+    "sourceRoute": "/projects/voice-mind",
+    "sourceTitle": "Voice Mind",
     "heading": "01 / Problem",
     "text": "DRAFT: define the user problem (hands-free knowledge access) and target users before launch."
   },
@@ -95,6 +113,12 @@ export const KB_CHUNKS: KbChunk[] = [
   {
     "sourceRoute": "/research/aura-runtime-research",
     "sourceTitle": "AURA Runtime Research",
+    "heading": "Overview",
+    "text": "Experiments in runtime behavior, governance, and evidence reconstruction. Independent experiments on agent runtime behavior, governance gating, and evidence reconstruction. Hypotheses clearly marked as such; only reproducible findings reported as findings."
+  },
+  {
+    "sourceRoute": "/research/aura-runtime-research",
+    "sourceTitle": "AURA Runtime Research",
     "heading": "Objective",
     "text": "DRAFT: experimental objectives before launch."
   },
@@ -109,6 +133,12 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceTitle": "AURA Runtime Research",
     "heading": "Limitations",
     "text": "Independent experiment, not peer-reviewed work. DRAFT: reproducible findings before launch."
+  },
+  {
+    "sourceRoute": "/research/insulator-fault-detection",
+    "sourceTitle": "Power Line Insulator Fault Detection",
+    "heading": "Overview",
+    "text": "Interpretable attention-guided hybrid framework. Research on interpretable attention-guided hybrid models for power-line insulator fault detection. DRAFT: confirm citation, IEEE link, dataset, metrics, and limitations before launch."
   },
   {
     "sourceRoute": "/research/insulator-fault-detection",
@@ -131,6 +161,12 @@ export const KB_CHUNKS: KbChunk[] = [
   {
     "sourceRoute": "/research/wbfvd-colorization",
     "sourceTitle": "WBFVD — Image Colorization Research",
+    "heading": "Overview",
+    "text": "Deep-learning true-to-color reconstruction using U-Net. Deep-learning-based true-to-color image reconstruction using U-Net. DRAFT: confirm publication status, experimental comparisons, and quantitative results before launch."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD — Image Colorization Research",
     "heading": "Problem",
     "text": "DRAFT: colorization problem framing before launch."
   },
@@ -149,6 +185,12 @@ export const KB_CHUNKS: KbChunk[] = [
   {
     "sourceRoute": "/writing/evaluate-agentic-ai",
     "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
+    "heading": "Overview",
+    "text": "Demos pass; systems must be measured. What to track instead of vibes."
+  },
+  {
+    "sourceRoute": "/writing/evaluate-agentic-ai",
+    "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
     "heading": "Demo success is not system success",
     "text": "A golden-path demo exercises one trajectory. Production exercises the distribution. DRAFT: illustrate with ACORD evaluation protocol before launch."
   },
@@ -163,6 +205,12 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
     "heading": "Trade-offs",
     "text": "Evaluation harnesses cost engineering time and can ossify behavior. Measure the load-bearing paths; sample the rest."
+  },
+  {
+    "sourceRoute": "/writing/governed-agent-runtime",
+    "sourceTitle": "Designing a Governed AI Agent Runtime",
+    "heading": "Overview",
+    "text": "Why policy gating belongs between orchestration and execution, and what it costs."
   },
   {
     "sourceRoute": "/writing/governed-agent-runtime",

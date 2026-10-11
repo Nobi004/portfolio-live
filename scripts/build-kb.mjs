@@ -31,9 +31,13 @@ for (const [dir, routeBase] of Object.entries(SECTIONS)) {
   const dirPath = path.join(ROOT, "src", "content", dir);
   for (const file of readdirSync(dirPath).filter((f) => f.endsWith(".mdx"))) {
     const raw = readFileSync(path.join(dirPath, file), "utf8");
-    const metaMatch = raw.match(/title:\s*"([^"]+?)"/);
+    const pick = (key) => (raw.match(new RegExp(`${key}:\\s*"([^"]+?)"`)) || [])[1] ?? "";
     const slug = file.replace(/\.mdx$/, "");
-    const title = metaMatch ? metaMatch[1] : slug;
+    const title = pick("title") || slug;
+    const overview = [pick("tagline"), pick("summary"), pick("role")].filter(Boolean).join(" ");
+    if (overview) {
+      chunks.push({ sourceRoute: `/${routeBase}/${slug}`, sourceTitle: title, heading: "Overview", text: overview.slice(0, 1200) });
+    }
     for (const s of splitSections(cleanBody(raw))) {
       chunks.push({ sourceRoute: `/${routeBase}/${slug}`, sourceTitle: title, heading: s.heading, text: s.text.slice(0, 1200) });
     }

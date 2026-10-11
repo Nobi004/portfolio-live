@@ -9,12 +9,21 @@ const STOPWORDS = new Set(
   "a,an,the,and,or,but,of,to,in,on,for,with,what,which,who,how,does,do,is,are,he,his,him,has,have,had,was,were,be,been,by,about,can,could,should,would,there,their,they,it,its,as,at,from,that,this,these,those,you,your,i,me,my,we,our".split(","),
 );
 
+export function stem(w: string): string {
+  if (w.length > 4 && w.endsWith("ies")) return w.slice(0, -3) + "y";
+  if (w.length > 4 && w.endsWith("es")) return w.slice(0, -2);
+  if (w.length > 3 && w.endsWith("s")) return w.slice(0, -1);
+  if (w.length > 5 && w.endsWith("ic")) return w.slice(0, -2);
+  return w;
+}
+
 export function tokenize(s: string): string[] {
   return s
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, " ")
     .split(/\s+/)
-    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w))
+    .map(stem);
 }
 
 export function scoreChunk(queryTokens: string[], chunk: KbChunk): number {

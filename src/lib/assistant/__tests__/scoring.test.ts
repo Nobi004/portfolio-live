@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { buildContext, retrieve, tokenize, type KbChunk } from "../kb";
 
 const CHUNKS: KbChunk[] = [
+  { sourceRoute: "/projects/aura", sourceTitle: "AURA", heading: "Overview", text: "Personal AI agent runtime exploring how to coordinate tools while keeping execution control" },
   { sourceRoute: "/projects/aura", sourceTitle: "AURA", heading: "Architecture", text: "runtime kernel orchestration governance execution events" },
   { sourceRoute: "/writing/x", sourceTitle: "Other", heading: "", text: "completely unrelated baking recipes" },
 ];
@@ -16,6 +17,11 @@ describe("tokenize", () => {
 describe("retrieve", () => {
   it("ranks the overlapping chunk first", () => {
     const r = retrieve("Explain the AURA runtime kernel architecture", CHUNKS, 4);
+    expect(r.chunks[0].sourceRoute).toBe("/projects/aura");
+    expect(r.topScore).toBeGreaterThan(0);
+  });
+  it("matches plurals and -ic adjectives to their stems", () => {
+    const r = retrieve("What agentic systems has he built?", CHUNKS, 4);
     expect(r.chunks[0].sourceRoute).toBe("/projects/aura");
     expect(r.topScore).toBeGreaterThan(0);
   });
