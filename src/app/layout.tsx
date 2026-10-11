@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "AI Engineer focused on agentic systems, applied machine learning, document intelligence, and production software architecture.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col antialiased`}>
