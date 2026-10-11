@@ -1,0 +1,41 @@
+import { AuraArchitecture } from "@/components/diagrams/aura-architecture";
+
+export const metadata = {
+  slug: "aura",
+  title: "AURA — Adaptive AI Operating System",
+  tagline: "Research-driven architecture for a governed, extensible personal AI agent runtime.",
+  summary: "Personal AI agent runtime exploring how to coordinate tools and applications while keeping execution control, policy gating, and observability. Async event-driven orchestration with a governance layer; research-stage, capabilities clearly separated from plans.",
+  role: "Designer and sole implementer: runtime kernel, orchestration, governance hooks, event bus, tests.",
+  status: "ongoing",
+  stack: ["Python", "AsyncIO", "Event-driven architecture", "Docker"],
+  featured: true,
+};
+
+## 01 / Problem
+
+How can an AI system coordinate tools and applications while maintaining execution control and observability?
+
+DRAFT: expand target users (self-directed power users, researchers) before launch.
+
+## 02 / Architecture
+
+<AuraArchitecture />
+
+Illustrative logical architecture, not a complete current-state diagram.
+
+DRAFT: confirm layer names against the current codebase before launch.
+
+## 03 / Engineering decisions
+
+- Asynchronous execution isolates long-running tool calls from interaction latency.
+- Event-driven behavior decouples orchestration stages; trade-off: harder to trace than direct calls, mitigated by the event log.
+- Policy gating sits between orchestration and execution so unapproved actions never run.
+- DRAFT: state-management and testing approach to be confirmed against the repo before launch.
+
+## 04 / Evidence
+
+DRAFT: repository URL pending verification. Release tags, test reports, and architecture decision records to be linked here before launch.
+
+## 05 / Limitations and next steps
+
+Implemented functionality is distinguished from research experiments and planned capabilities. DRAFT: enumerate both lists from the repo before launch.
