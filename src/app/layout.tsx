@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PersonJsonLd } from "@/components/seo/person-jsonld";
+import { AskWidget } from "@/components/assistant/ask-widget";
 import { siteDescription, siteName, siteUrl } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -46,6 +47,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SiteFooter />
           <Analytics />
         </ThemeProvider>
+        <AskWidget />
+        <noscript>
+          <p>
+            JavaScript is disabled — browse the <a href="/projects">projects</a> or{" "}
+            <a href="/contact">get in touch</a> directly.
+          </p>
+        </noscript>
       </body>
     </html>
   );

@@ -376,8 +376,6 @@ import { buildMessages, type ChatTurn } from "@/lib/assistant/prompt";
 import { createRateLimiter } from "@/lib/assistant/ratelimit";
 import { siteUrl } from "@/lib/site";
 
-export const runtime = "nodejs";
-
 const limiter = createRateLimiter({
   limit: assistantConfig.rateLimit,
   windowMs: assistantConfig.rateWindowMs,
