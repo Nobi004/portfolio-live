@@ -81,7 +81,10 @@ export async function POST(req: NextRequest) {
   }
 
   const context = buildContext(chunks, assistantConfig.wordBudget);
-  const sources = chunks.map((c) => ({ title: c.sourceTitle, route: c.sourceRoute }));
+  const seen = new Set<string>();
+  const sources = chunks
+    .map((c) => ({ title: c.sourceTitle, route: c.sourceRoute }))
+    .filter((s) => (seen.has(s.route) ? false : (seen.add(s.route), true)));
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), assistantConfig.requestTimeoutMs);
