@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 import { ChatMessage, type Message, type Source } from "./chat-message";
 
 const SUGGESTIONS = [
-  "What agentic systems has he built?",
-  "Explain the architecture of AURA.",
   "What has he published?",
+  "What is the insulator fault detection paper about?",
+  "Who are the authors of the IEEE paper?",
 ];
 
 const DISCLAIMER = "Experimental assistant — answers are grounded in public portfolio content and may be incomplete.";

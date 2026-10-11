@@ -2,7 +2,8 @@ import { NextRequest } from "next/server";
 import { assistantConfig, openRouterKey, openRouterModel } from "@/lib/assistant/config";
 import { KB_CHUNKS } from "@/lib/assistant/kb-data";
 import { buildContext, retrieve } from "@/lib/assistant/kb";
-import { buildMessages, type ChatTurn } from "@/lib/assistant/prompt";
+import { buildMessages } from "@/lib/assistant/prompt";
+import { validateAskRequest } from "@/lib/assistant/validate";
 import { createRateLimiter } from "@/lib/assistant/ratelimit";
 import { siteUrl } from "@/lib/site";
 
@@ -12,9 +13,9 @@ const limiter = createRateLimiter({
 });
 
 const FALLBACK_SUGGESTIONS = [
-  { q: "What agentic systems has he built?", route: "/projects/aura" },
-  { q: "Explain the architecture of AURA.", route: "/projects/aura" },
   { q: "What has he published?", route: "/research/insulator-fault-detection" },
+  { q: "What is the insulator fault detection paper about?", route: "/research/insulator-fault-detection" },
+  { q: "Who are the authors of the IEEE paper?", route: "/research/insulator-fault-detection" },
 ];
 
 function sse(data: string): string {
@@ -30,27 +31,17 @@ function clientIp(req: NextRequest): string {
 }
 
 export async function POST(req: NextRequest) {
-  let body: { message?: unknown; history?: unknown };
+  let body: unknown;
   try {
     body = await req.json();
   } catch {
     return Response.json({ error: "Invalid JSON body." }, { status: 400 });
   }
-  const message = typeof body.message === "string" ? body.message.trim() : "";
-  const history = Array.isArray(body.history)
-    ? (body.history as ChatTurn[]).filter(
-        (t) => (t.role === "user" || t.role === "assistant") && typeof t.content === "string",
-      )
-    : [];
-  if (!message || message.length > assistantConfig.maxInputChars) {
-    return Response.json(
-      { error: `Message must be 1–${assistantConfig.maxInputChars} characters.` },
-      { status: 400 },
-    );
+  const validated = validateAskRequest(body);
+  if (!validated.ok) {
+    return Response.json({ error: validated.error }, { status: 400 });
   }
-  if (history.length > assistantConfig.maxTurns * 2) {
-    return Response.json({ error: "Conversation too long — please start over." }, { status: 400 });
-  }
+  const { message, history } = validated;
 
   const rl = limiter.check(clientIp(req));
   if (!rl.ok) {

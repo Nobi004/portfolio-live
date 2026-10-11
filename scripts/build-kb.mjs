@@ -40,6 +40,15 @@ for (const [dir, routeBase] of Object.entries(SECTIONS)) {
     if (overview) {
       chunks.push({ sourceRoute: `/${routeBase}/${slug}`, sourceTitle: title, heading: "Overview", text: overview.slice(0, 1200) });
     }
+    // Author names and venue live in metadata (incl. BibTeX), not the body —
+    // without this chunk, authorship questions never match.
+    const bibAuthors = (raw.match(/author\s*=\s*\{([^}]+)\}/) || [])[1];
+    const record = [pick("venue"), pick("year"), bibAuthors ? `Authors: ${bibAuthors}` : ""]
+      .filter(Boolean)
+      .join(" ");
+    if (record) {
+      chunks.push({ sourceRoute: `/${routeBase}/${slug}`, sourceTitle: title, heading: "Publication record", text: record.slice(0, 600) });
+    }
     for (const s of splitSections(cleanBody(raw))) {
       chunks.push({ sourceRoute: `/${routeBase}/${slug}`, sourceTitle: title, heading: s.heading, text: s.text.slice(0, 1200) });
     }

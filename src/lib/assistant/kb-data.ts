@@ -3,231 +3,39 @@ import type { KbChunk } from "./kb";
 
 export const KB_CHUNKS: KbChunk[] = [
   {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "sourceRoute": "/research/insulator-fault-detection",
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Overview",
-    "text": "Research-driven architecture for a governed, extensible personal AI agent runtime. Personal AI agent runtime exploring how to coordinate tools and applications while keeping execution control, policy gating, and observability. Async event-driven orchestration with a governance layer; research-stage, capabilities clearly separated from plans. Designer and sole implementer: runtime kernel, orchestration, governance hooks, event bus, tests."
-  },
-  {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
-    "heading": "01 / Problem",
-    "text": "How can an AI system coordinate tools and applications while maintaining execution control and observability?\r\nDRAFT: expand target users (self-directed power users, researchers) before launch."
-  },
-  {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
-    "heading": "02 / Architecture",
-    "text": "<AuraArchitecture />\r\nIllustrative logical architecture, not a complete current-state diagram.\r\nDRAFT: confirm layer names against the current codebase before launch."
-  },
-  {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
-    "heading": "03 / Engineering decisions",
-    "text": "- Asynchronous execution isolates long-running tool calls from interaction latency.\r\n- Event-driven behavior decouples orchestration stages; trade-off: harder to trace than direct calls, mitigated by the event log.\r\n- Policy gating sits between orchestration and execution so unapproved actions never run.\r\n- DRAFT: state-management and testing approach to be confirmed against the repo before launch."
-  },
-  {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
-    "heading": "04 / Evidence",
-    "text": "DRAFT: repository URL pending verification. Release tags, test reports, and architecture decision records to be linked here before launch."
-  },
-  {
-    "sourceRoute": "/projects/aura",
-    "sourceTitle": "AURA — Adaptive AI Operating System",
-    "heading": "05 / Limitations and next steps",
-    "text": "Implemented functionality is distinguished from research experiments and planned capabilities. DRAFT: enumerate both lists from the repo before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "Overview",
-    "text": "OCR and document understanding with structured extraction and model evaluation. Applied-ML pipeline for OCR, document understanding, and structured information extraction, with explicit model evaluation. DRAFT: confirm datasets, metrics, and what may be disclosed before launch. DRAFT: confirm role and contributions before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "01 / Problem",
-    "text": "DRAFT: define document types, users, and the extraction accuracy problem before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "02 / Architecture",
-    "text": "DRAFT: pipeline diagram (ingest → OCR → understanding → structured extraction → evaluation) before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "03 / Engineering decisions",
-    "text": "DRAFT: OCR engine choice, extraction approach, and evaluation protocol before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "04 / Evidence",
-    "text": "DRAFT: repository URL pending verification. Evaluation metrics and sample outputs to be linked here before launch."
-  },
-  {
-    "sourceRoute": "/projects/document-intelligence",
-    "sourceTitle": "ACORD Document Intelligence",
-    "heading": "05 / Limitations and next steps",
-    "text": "DRAFT: enumerate before launch. No unverified accuracy claims."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "Overview",
-    "text": "Shipped voice-based RAG application for real-world use. Consumer AI application combining voice input with retrieval-augmented generation. DRAFT: confirm adoption figures, platforms, and stack against what is publicly verifiable before launch. DRAFT: confirm role and contributions before launch."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "01 / Problem",
-    "text": "DRAFT: define the user problem (hands-free knowledge access) and target users before launch."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "02 / Architecture",
-    "text": "DRAFT: pipeline diagram (voice input → transcription → retrieval → generation → speech/output) before launch."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "03 / Engineering decisions",
-    "text": "DRAFT: transcription, chunking/retrieval, latency, and fallback decisions before launch."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "04 / Evidence",
-    "text": "DRAFT: repository/demo URL pending verification. Only publicly verifiable adoption evidence before launch."
-  },
-  {
-    "sourceRoute": "/projects/voice-mind",
-    "sourceTitle": "Voice Mind",
-    "heading": "05 / Limitations and next steps",
-    "text": "DRAFT: enumerate before launch."
-  },
-  {
-    "sourceRoute": "/research/aura-runtime-research",
-    "sourceTitle": "AURA Runtime Research",
-    "heading": "Overview",
-    "text": "Experiments in runtime behavior, governance, and evidence reconstruction. Independent experiments on agent runtime behavior, governance gating, and evidence reconstruction. Hypotheses clearly marked as such; only reproducible findings reported as findings."
-  },
-  {
-    "sourceRoute": "/research/aura-runtime-research",
-    "sourceTitle": "AURA Runtime Research",
-    "heading": "Objective",
-    "text": "DRAFT: experimental objectives before launch."
-  },
-  {
-    "sourceRoute": "/research/aura-runtime-research",
-    "sourceTitle": "AURA Runtime Research",
-    "heading": "Method",
-    "text": "DRAFT: methodology before launch. Hypotheses are labeled hypotheses, not results."
-  },
-  {
-    "sourceRoute": "/research/aura-runtime-research",
-    "sourceTitle": "AURA Runtime Research",
-    "heading": "Limitations",
-    "text": "Independent experiment, not peer-reviewed work. DRAFT: reproducible findings before launch."
+    "text": "IEEE ICEESI 2026 conference paper on interpretable fault detection for power line insulators. First-author IEEE conference paper proposing an interpretable attention-guided hybrid framework for detecting faults in power line insulators. Citation verified against the Crossref publisher record."
   },
   {
     "sourceRoute": "/research/insulator-fault-detection",
-    "sourceTitle": "Power Line Insulator Fault Detection",
-    "heading": "Overview",
-    "text": "Interpretable attention-guided hybrid framework. Research on interpretable attention-guided hybrid models for power-line insulator fault detection. DRAFT: confirm citation, IEEE link, dataset, metrics, and limitations before launch."
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
+    "heading": "Publication record",
+    "text": "IEEE ICEESI 2026 2026 Authors: Nobi, Md. Mahmudun and Siddique, Md. Moradul and Sutradhar, Yadab and Shawon, Istiak Hossain and Adnan, Md. Nasim and Galib, Syed Md."
   },
   {
     "sourceRoute": "/research/insulator-fault-detection",
-    "sourceTitle": "Power Line Insulator Fault Detection",
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Problem",
-    "text": "DRAFT: problem statement, dataset, and evaluation metrics before launch."
+    "text": "Insulator faults threaten transmission reliability, and black-box detectors are hard to trust in grid operations. This work investigates an interpretable hybrid approach so fault detections come with understandable evidence."
   },
   {
     "sourceRoute": "/research/insulator-fault-detection",
-    "sourceTitle": "Power Line Insulator Fault Detection",
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Method",
-    "text": "DRAFT: architecture summary before launch."
+    "text": "The paper proposes an attention-guided hybrid framework for insulator fault detection. Method details, dataset, and evaluation below reflect only the publication record; an author-approved technical summary is pending."
   },
   {
     "sourceRoute": "/research/insulator-fault-detection",
-    "sourceTitle": "Power Line Insulator Fault Detection",
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
+    "heading": "Evidence",
+    "text": "Published in the proceedings of the 2026 International Conference on Electrical and Electronics for Sustainable Innovations (ICEESI), Raigarh, India. Publisher record: IEEE, DOI [10.1109/iceesi68020.2026.11583598](https://doi.org/10.1109/iceesi68020.2026.11583598)."
+  },
+  {
+    "sourceRoute": "/research/insulator-fault-detection",
+    "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Limitations",
-    "text": "DRAFT: limitations before launch. No unverified accuracy claims."
-  },
-  {
-    "sourceRoute": "/research/wbfvd-colorization",
-    "sourceTitle": "WBFVD — Image Colorization Research",
-    "heading": "Overview",
-    "text": "Deep-learning true-to-color reconstruction using U-Net. Deep-learning-based true-to-color image reconstruction using U-Net. DRAFT: confirm publication status, experimental comparisons, and quantitative results before launch."
-  },
-  {
-    "sourceRoute": "/research/wbfvd-colorization",
-    "sourceTitle": "WBFVD — Image Colorization Research",
-    "heading": "Problem",
-    "text": "DRAFT: colorization problem framing before launch."
-  },
-  {
-    "sourceRoute": "/research/wbfvd-colorization",
-    "sourceTitle": "WBFVD — Image Colorization Research",
-    "heading": "Method",
-    "text": "DRAFT: U-Net setup and training details before launch."
-  },
-  {
-    "sourceRoute": "/research/wbfvd-colorization",
-    "sourceTitle": "WBFVD — Image Colorization Research",
-    "heading": "Limitations",
-    "text": "DRAFT: limitations and example outputs before launch."
-  },
-  {
-    "sourceRoute": "/writing/evaluate-agentic-ai",
-    "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
-    "heading": "Overview",
-    "text": "Demos pass; systems must be measured. What to track instead of vibes."
-  },
-  {
-    "sourceRoute": "/writing/evaluate-agentic-ai",
-    "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
-    "heading": "Demo success is not system success",
-    "text": "A golden-path demo exercises one trajectory. Production exercises the distribution. DRAFT: illustrate with ACORD evaluation protocol before launch."
-  },
-  {
-    "sourceRoute": "/writing/evaluate-agentic-ai",
-    "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
-    "heading": "What to measure",
-    "text": "Task completion rate, tool-call precision, recovery rate after failure, cost per task. DRAFT: define each metric precisely before launch."
-  },
-  {
-    "sourceRoute": "/writing/evaluate-agentic-ai",
-    "sourceTitle": "How to Evaluate Agentic AI Beyond Demo Success",
-    "heading": "Trade-offs",
-    "text": "Evaluation harnesses cost engineering time and can ossify behavior. Measure the load-bearing paths; sample the rest."
-  },
-  {
-    "sourceRoute": "/writing/governed-agent-runtime",
-    "sourceTitle": "Designing a Governed AI Agent Runtime",
-    "heading": "Overview",
-    "text": "Why policy gating belongs between orchestration and execution, and what it costs."
-  },
-  {
-    "sourceRoute": "/writing/governed-agent-runtime",
-    "sourceTitle": "Designing a Governed AI Agent Runtime",
-    "heading": "The problem with ungoverned tool use",
-    "text": "An agent that can call tools without a control point can take unapproved actions. DRAFT: ground in AURA implementation detail before launch."
-  },
-  {
-    "sourceRoute": "/writing/governed-agent-runtime",
-    "sourceTitle": "Designing a Governed AI Agent Runtime",
-    "heading": "Where the gate goes",
-    "text": "Policy checks sit between orchestration and execution: orchestration proposes, governance disposes, execution runs only approved actions."
-  },
-  {
-    "sourceRoute": "/writing/governed-agent-runtime",
-    "sourceTitle": "Designing a Governed AI Agent Runtime",
-    "heading": "Trade-offs",
-    "text": "A gate adds latency and can block legitimate work when policies are too coarse. DRAFT: quantify from AURA event logs before launch — no invented numbers."
+    "text": "This entry currently cites the publication record only. Datasets, metrics, and comparisons await author-approved detail; no accuracy claims are made here."
   }
 ];
