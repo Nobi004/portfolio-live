@@ -4,7 +4,6 @@ import { KB_CHUNKS } from "../kb-data";
 // Keep UNPUBLISHED_SLUGS in sync with content: remove a slug here the moment
 // its entry flips to published:true, and add its route to PUBLISHED_ROUTES.
 const UNPUBLISHED_SLUGS = [
-  "aura",
   "document-intelligence",
   "voice-mind",
   "wbfvd-colorization",

@@ -8,11 +8,12 @@ export function AuraArchitecture() {
     >
       <title id="aura-arch-title">AURA logical architecture</title>
       <desc id="aura-arch-desc">
-        Illustrative logical architecture, not a complete current-state diagram. User and application
-        interface feeds a runtime kernel for orchestration, gated by governance, driving execution, with
-        events flowing back to the interface.
+        Simplified logical view of the v0.1.0 Runtime Core: the interface reaches the AURARuntime
+        kernel, capability use passes the GovernanceGate allow/deny check, the CapabilityExecutor
+        runs the validate-governance-execute lifecycle, and the EventBus carries events back. See
+        the repository docs for the full five-layer architecture.
       </desc>
-      {["Interface", "Runtime Kernel", "Governance", "Execution", "Events"].map((label, i) => {
+      {["Interface", "AURARuntime", "GovernanceGate", "Executor", "EventBus"].map((label, i) => {
         const x = 8 + i * 126;
         return (
           <g key={label}>

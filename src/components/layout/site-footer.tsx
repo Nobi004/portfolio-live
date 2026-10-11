@@ -27,6 +27,9 @@ export function SiteFooter() {
           <li>
             <a href="https://github.com/Nobi004">GitHub</a>
           </li>
+          <li>
+            <a href="https://www.linkedin.com/in/nobi004/">LinkedIn</a>
+          </li>
         </ul>
       </div>
     </footer>

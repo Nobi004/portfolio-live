@@ -13,8 +13,8 @@ const limiter = createRateLimiter({
 });
 
 const FALLBACK_SUGGESTIONS = [
+  { q: "Explain the architecture of AURA.", route: "/projects/aura" },
   { q: "What has he published?", route: "/research/insulator-fault-detection" },
-  { q: "What is the insulator fault detection paper about?", route: "/research/insulator-fault-detection" },
   { q: "Who are the authors of the IEEE paper?", route: "/research/insulator-fault-detection" },
 ];
 

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { getAllPublishedProjectMeta } from "@/lib/projects";
 import { getAllPublishedResearchMeta } from "@/lib/research";
 
 export default async function HomePage() {
   const research = await getAllPublishedResearchMeta();
+  const featured = (await getAllPublishedProjectMeta()).filter((p) => p.featured);
   return (
     <>
       <section aria-labelledby="hero-heading" className="hero">
@@ -53,11 +55,27 @@ export default async function HomePage() {
 
       <section aria-labelledby="projects-heading" className="home-section">
         <h2 id="projects-heading">Featured engineering work</h2>
-        <p>
-          In-depth architecture case studies are under technical review and will appear here once
-          verified. Until then, the working code is browsable at{" "}
-          <a href="https://github.com/Nobi004">github.com/Nobi004</a>.
-        </p>
+        {featured.length === 0 ? (
+          <p>
+            In-depth architecture case studies are under technical review and will appear here
+            once verified. Until then, the working code is browsable at{" "}
+            <a href="https://github.com/Nobi004">github.com/Nobi004</a>.
+          </p>
+        ) : (
+          <ul className="entry-list">
+            {featured.map((p) => (
+              <li key={p.slug}>
+                <h3>
+                  <Link href={`/projects/${p.slug}`}>{p.title}</Link>
+                </h3>
+                <p className="entry-meta">
+                  Status: {p.status} · {p.stack.join(", ")}
+                </p>
+                <p>{p.tagline}</p>
+              </li>
+            ))}
+          </ul>
+        )}
         <p>
           <Link href="/projects">All projects</Link>
         </p>
