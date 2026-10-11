@@ -1,0 +1,19 @@
+export const metadata = {
+  slug: "governed-agent-runtime",
+  title: "Designing a Governed AI Agent Runtime",
+  summary: "Why policy gating belongs between orchestration and execution, and what it costs.",
+  date: "2026-10-11",
+  tags: ["agents", "architecture", "governance"],
+};
+
+## The problem with ungoverned tool use
+
+An agent that can call tools without a control point can take unapproved actions. DRAFT: ground in AURA implementation detail before launch.
+
+## Where the gate goes
+
+Policy checks sit between orchestration and execution: orchestration proposes, governance disposes, execution runs only approved actions.
+
+## Trade-offs
+
+A gate adds latency and can block legitimate work when policies are too coarse. DRAFT: quantify from AURA event logs before launch — no invented numbers.
