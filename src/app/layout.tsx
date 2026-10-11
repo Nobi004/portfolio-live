@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -50,8 +51,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AskWidget />
         <noscript>
           <p>
-            JavaScript is disabled — browse the <a href="/projects">projects</a> or{" "}
-            <a href="/contact">get in touch</a> directly.
+            JavaScript is disabled — browse the <Link href="/projects">projects</Link> or{" "}
+            <Link href="/contact">get in touch</Link> directly.
           </p>
         </noscript>
       </body>

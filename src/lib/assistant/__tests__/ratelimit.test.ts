@@ -3,7 +3,7 @@ import { createRateLimiter } from "../ratelimit";
 
 describe("createRateLimiter", () => {
   it("allows up to the limit then blocks with retryAfterMs", () => {
-    let t = 0;
+    const t = 0;
     const rl = createRateLimiter({ limit: 2, windowMs: 1000, now: () => t });
     expect(rl.check("1.2.3.4").ok).toBe(true);
     expect(rl.check("1.2.3.4").ok).toBe(true);
