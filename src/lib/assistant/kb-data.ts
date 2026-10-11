@@ -3,6 +3,42 @@ import type { KbChunk } from "./kb";
 
 export const KB_CHUNKS: KbChunk[] = [
   {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "Overview",
+    "text": "Open-source, offline-first agent runtime with a governed, event-driven execution core. AURA (Adaptive Unified Reasoning Agent) is an open-source agent platform whose implemented v0.1.0 Runtime Core coordinates capabilities through an event-driven kernel with policy gating: async EventBus, CapabilityRegistry, StateManager, GovernanceGate allow/deny engine, and a validate-governance-execute lifecycle. 154 tests passing; benchmarks as reported in the repository. Lead contributor to the v0.1.0 Runtime Core (70 commits as Mahmudun-Nobi, per public contribution history), working from architecture specs through implementation, tests, and release review artifacts."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "01 / Problem",
+    "text": "How can an AI system coordinate tools and applications while maintaining execution control and observability? AURA answers with a runtime kernel: every capability use flows through validation, an explicit governance decision, and execution — with events, state, and evidence recorded along the way."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "02 / Architecture",
+    "text": "<AuraArchitecture />\nSimplified logical view of the v0.1.0 Runtime Core. The platform is designed in five layers (interaction, runtime kernel, cognitive services, execution, storage); the implemented core is layer 2:\n- **AURARuntime** — central kernel coordinating all subsystems.\n- **EventBus** — async publish/subscribe event distribution with error isolation.\n- **CapabilityRegistry** — dynamic capability registration, resolution, and lookup.\n- **StateManager** — event-driven lifecycle tracking with validated state transitions.\n- **GovernanceGate** — allow/deny policy engine for capability access control.\n- **CapabilityExecutor** — orchestrates the validate → governance → execute lifecycle.\n- **Providers** — v0.1.0 ships three capability providers: `core.echo`, `core.system_info`, `core.sleep`."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "03 / Engineering decisions",
+    "text": "- **Governance between validation and execution.** The executor lifecycle runs validate → governance → execute, so an unapproved capability never reaches execution. The trade-off is a policy checkpoint on every action; the registry keeps policies central so the cost stays in one place.\n- **Event-driven decoupling with error isolation.** Subsystems communicate through the async event bus instead of direct calls, and bus errors are isolated so one failing subscriber does not take down the kernel. The trade-off is harder tracing than direct calls, addressed by event reconstruction (verified in experiment E-002).\n- **Validated state transitions.** The state manager accepts only legal lifecycle transitions, making illegal execution states unrepresentable rather than merely unlikely.\n- **Offline-first platform.** The runtime targets local execution across devices, avoiding a hard dependency on hosted inference for the core loop.\n- **Strict static checks.** ruff-clean and mypy-clean (0 errors across 30 source files) gates keep the kernel refactorable as cognitive layers land."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "04 / Evidence",
+    "text": "Repository: [Adaptive-Intelligence-Research-Lab/AURA](https://github.com/Adaptive-Intelligence-Research-Lab/AURA) (public source under AIR Lab Research License). As reported in the repository at v0.1.0:\n- **154 tests passing** — unit, integration, and end-to-end suites (`pytest tests/`).\n- **ruff** — all checks passed. **mypy** — 0 errors across 30 source files.\n- **3 experiments SUPPORTED** — capability independence, event reconstruction, failure isolation, with artifacts under `research/experiments/`.\n- **Benchmarks** — 265k events/sec, 4.4μs p50 latency, 0.02ms action execution, per the repository benchmark suite. Methodology and hardware were not independently reviewed; treat these as project-reported figures."
+  },
+  {
+    "sourceRoute": "/projects/aura",
+    "sourceTitle": "AURA — Adaptive AI Operating System",
+    "heading": "05 / Limitations and next steps",
+    "text": "- Only the runtime kernel (layer 2 of 5) is implemented; interaction, cognitive services, execution agents, and storage layers are future work per the project roadmap.\n- Observability is stubbed (`logger`, `metrics`, `tracing` wrappers), not a full pipeline.\n- The three shipped providers are demonstration capabilities, not production tool integrations.\n- Benchmark figures are project-reported; independent reproduction is pending.\nNext steps follow the layered design: cognitive services (reasoning, memory, planning), real capability providers, and completed observability."
+  },
+  {
     "sourceRoute": "/research/insulator-fault-detection",
     "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Overview",
