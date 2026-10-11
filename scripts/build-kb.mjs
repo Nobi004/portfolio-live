@@ -30,7 +30,8 @@ const chunks = [];
 for (const [dir, routeBase] of Object.entries(SECTIONS)) {
   const dirPath = path.join(ROOT, "src", "content", dir);
   for (const file of readdirSync(dirPath).filter((f) => f.endsWith(".mdx"))) {
-    const raw = readFileSync(path.join(dirPath, file), "utf8");
+    // Normalize CRLF checkouts so generated output is byte-stable everywhere.
+    const raw = readFileSync(path.join(dirPath, file), "utf8").replace(/\r\n/g, "\n");
     // Only published entries may feed the assistant. Drafts stay out of answers.
     if (!/published:\s*true/.test(raw)) continue;
     const pick = (key) => (raw.match(new RegExp(`${key}:\\s*"([^"]+?)"`)) || [])[1] ?? "";
