@@ -17,7 +17,7 @@ export default async function ProjectsPage() {
   return (
     <article>
       <h1>Projects</h1>
-      <ul>
+      <ul className="entry-list">
         {projects
           .filter((p) => p.featured)
           .map((p) => (
@@ -27,7 +27,7 @@ export default async function ProjectsPage() {
               </Link>
               <p>{p.tagline}</p>
               <p>{p.summary}</p>
-              <p>
+              <p className="entry-meta">
                 Status: {p.status} · Role: {p.role}
               </p>
             </li>

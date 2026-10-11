@@ -1,6 +1,6 @@
 export default function ContactPage() {
   return (
-    <article>
+    <article className="prose-stock">
       <h1>Contact</h1>
       <p>
         The fastest way to reach me right now is through{" "}

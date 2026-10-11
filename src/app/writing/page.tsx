@@ -14,14 +14,14 @@ export default async function WritingPage() {
   return (
     <article>
       <h1>Writing</h1>
-      <ul>
+      <ul className="entry-list">
         {articles.map((a) => (
           <li key={a.slug}>
             <Link href={`/writing/${a.slug}`}>
               <h2>{a.title}</h2>
             </Link>
             <p>{a.summary}</p>
-            <p>
+            <p className="entry-meta">
               {a.date} · {a.tags.join(", ")}
             </p>
           </li>

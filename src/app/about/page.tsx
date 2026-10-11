@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
-    <article>
+    <article className="prose-stock">
       <h1>About</h1>
       <p>
         Md. Mahmudun Nobi is an AI engineer in Dhaka, Bangladesh, working on agentic systems,
@@ -13,9 +15,9 @@ export default function AboutPage() {
       </p>
       <p>
         Peer-reviewed work:{" "}
-        <a href="/research/insulator-fault-detection">
+        <Link href="/research/insulator-fault-detection">
           interpretable fault detection for power line insulators (IEEE ICEESI 2026)
-        </a>
+        </Link>
         .
       </p>
       <p>

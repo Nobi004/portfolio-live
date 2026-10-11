@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <ThemeProvider>
           <SiteHeader />
-          <main id="main-content">{children}</main>
+          <main id="main-content" className="site-shell">{children}</main>
           <SiteFooter />
           <Analytics />
         </ThemeProvider>

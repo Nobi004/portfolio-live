@@ -37,8 +37,8 @@ export default async function ProjectDetailPage({
   const mod = await import(`@/content/projects/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
-    <article>
-      <p>Case study · Status: {meta.status}</p>
+    <article className="prose-stock">
+      <p className="entry-meta">Case study · Status: {meta.status}</p>
       <h1>{meta.title}</h1>
       <p>{meta.tagline}</p>
       <p>Role: {meta.role}</p>

@@ -36,8 +36,8 @@ export default async function ResearchDetailPage({
   const mod = await import(`@/content/research/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
-    <article>
-      <p>
+    <article className="prose-stock">
+      <p className="entry-meta">
         Status: {meta.status}
         {meta.venue ? ` · ${meta.venue}` : ""}
       </p>

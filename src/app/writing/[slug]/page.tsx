@@ -37,9 +37,9 @@ export default async function ArticlePage({
   const mod = await import(`@/content/writing/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
-    <article>
+    <article className="prose-stock">
       <h1>{meta.title}</h1>
-      <p>
+      <p className="entry-meta">
         {meta.date} · {meta.tags.join(", ")}
       </p>
       <Post />
