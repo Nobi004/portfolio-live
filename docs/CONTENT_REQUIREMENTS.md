@@ -62,7 +62,6 @@ Draft → evidence review → editorial/technical review → ready → published
 Before release, the owner confirms identity, resume, public contact, availability, disclosure rights and canonical URL. A technical reviewer checks the three case studies. No credentials or private datasets belong in the repository. Review published claims monthly and whenever underlying releases change.
 
 ## Verification log
-
 | Date | Check | Method (public sources only) | Outcome |
 | --- | --- | --- | --- |
 | 2026-10-12 | GitHub identity (CON-02) | GitHub REST API `users/Nobi004` + local session login | Verified: login `Nobi004`, name `Mahmudun Nobi`, location Dhaka |
@@ -74,3 +73,7 @@ Before release, the owner confirms identity, resume, public contact, availabilit
 | 2026-10-12 | LinkedIn URL (CON-01) | Owner-supplied `https://www.linkedin.com/in/nobi004/`; automated fetch blocked (HTTP 999) | Accepted as owner-approved; browser eyeball-check still advised. |
 
 No private evidence was collected or stored. Owner-supplied secrets and contact details never enter this file.
+
+## Known platform behaviors
+
+- Unpublished/unknown detail slugs render the not-found page with HTTP 200 (soft 404) under this Next.js version's Cache Components PPR, despite `notFound()` + `instant = false` (`dynamic` configs are rejected). Mitigations in place: `noindex` on the fallback, exclusion from sitemap/listings/metadata, no inbound links. Revisit when the framework supports proper statuses for on-demand dynamic routes.
