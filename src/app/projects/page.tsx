@@ -1,8 +1,19 @@
 import Link from "next/link";
-import { getAllProjectMeta } from "@/lib/projects";
+import { getAllPublishedProjectMeta } from "@/lib/projects";
 
 export default async function ProjectsPage() {
-  const projects = await getAllProjectMeta();
+  const projects = await getAllPublishedProjectMeta();
+  if (projects.length === 0) {
+    return (
+      <article>
+        <h1>Projects</h1>
+        <p>
+          Engineering case studies are under technical review and will appear here once verified. In
+          the meantime, see public code at <a href="https://github.com/Nobi004">GitHub</a>.
+        </p>
+      </article>
+    );
+  }
   return (
     <article>
       <h1>Projects</h1>

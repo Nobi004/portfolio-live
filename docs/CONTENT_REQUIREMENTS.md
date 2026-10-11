@@ -10,22 +10,23 @@ Use evidence appropriate to the claim: source/release for implemented functional
 
 ## Initial inventory
 
-All rows remain unresolved until evidence is supplied and checked.
+All rows remain unresolved until evidence is supplied and checked, except rows
+marked verified below (verification log at the end of this file).
 
 | ID | Item / current observation | Evidence needed | Public action before verification |
 | --- | --- | --- | --- |
 | ID-01 | Name, AI Engineer headline, Dhaka location, availability | Owner confirmation of exact public wording | Keep as proposed positioning |
-| BIO-01 | EEE degree and transition into AI | Approved institution, qualification, dates, background | Omit unsupported specifics |
+| BIO-01 | EEE degree and transition into AI | PARTIAL 2026-10-12: Crossref affiliation for RES-01 lists Faridpur Engineering College, Department of EEE. Qualification level, dates, and transition narrative still need owner records. | State only the Crossref-listed affiliation; omit degree specifics |
 | BIO-02 | Employment, responsibilities, dates | Approved resume and disclosure review | Do not invent a timeline |
 | PRJ-01 | AURA role says sole implementer; runtime/governance assertions exist | Repository/release, contribution history, execution tests, architecture review | Draft until verified; separate plans from implementation |
 | PRJ-02 | ACORD Document Intelligence has draft role, stack, dataset, pipeline | Approved contribution statement, anonymized samples, evaluation protocol, permission | No client documents or accuracy claims |
 | PRJ-03 | Voice Mind currently says shipped | Working release/demo, platforms, role, implementation evidence | Treat shipped status and adoption as unverified |
-| RES-01 | Insulator fault detection currently says published | Exact title, author order, venue, year, DOI/publisher record | Do not advertise publication status as established |
+| RES-01 | Insulator fault detection currently says published | VERIFIED 2026-10-12 via Crossref: "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection", first author Md. Mahmudun Nobi (+5 co-authors), publisher IEEE, DOI `10.1109/iceesi68020.2026.11583598`, venue ICEESI 2026 (Raigarh, India). Status `published` may be advertised with this citation. | Advertise only with the verified citation + DOI link |
 | RES-02 | WBFVD colorization method and ongoing status | Approved manuscript/experiment, dataset, outputs, current status | Keep unpublished pending review |
 | RES-03 | AURA runtime research described as experiment | Objective, method, versioned artifacts, reproducible findings | No peer-review implication |
 | WRT-01 | Two draft engineering articles exist | Author review, original experience, checked references and code | Do not present drafts as published articles |
 | CON-01 | Contact uses `hello@example.com` and generic LinkedIn homepage | Public email and exact owner-approved profile URLs | Replace before public launch |
-| CON-02 | GitHub profile path appears in current code | Confirm owner and exact public destination | Existing link is a candidate, not verified identity |
+| CON-02 | GitHub profile path appears in current code | VERIFIED 2026-10-12: GitHub API `users/Nobi004` returns login `Nobi004`, name `Mahmudun Nobi`, location `Dhaka, Bangladesh`; local session authenticated as the same login. `https://github.com/Nobi004` is the owner-confirmed destination. | Existing link is verified identity |
 | CV-01 | `public/resume/resume.pdf` exists | Inspect PDF, approve current content, dates and contact details | Do not infer readiness from existence |
 | URL-01 | README gives a Vercel URL; domain suggestions exist in attachment | Confirm canonical origin and ownership | No domain availability or ownership claims |
 
@@ -58,3 +59,14 @@ Writing must explain a real decision or investigation, include original analysis
 Draft → evidence review → editorial/technical review → ready → published. This is the intended workflow; the current schemas do not yet encode it. Keep editorial state separate from research and project lifecycle status. Reject unresolved markers and placeholder URLs from published entries. Exclude drafts from public listings, detail routes, static params, metadata, structured data and sitemaps; do not rely only on hiding cards.
 
 Before release, the owner confirms identity, resume, public contact, availability, disclosure rights and canonical URL. A technical reviewer checks the three case studies. No credentials or private datasets belong in the repository. Review published claims monthly and whenever underlying releases change.
+
+## Verification log
+
+| Date | Check | Method (public sources only) | Outcome |
+| --- | --- | --- | --- |
+| 2026-10-12 | GitHub identity (CON-02) | GitHub REST API `users/Nobi004` + local session login | Verified: login `Nobi004`, name `Mahmudun Nobi`, location Dhaka |
+| 2026-10-12 | IEEE paper (RES-01) | Crossref REST API author/title query | Verified: IEEE ICEESI 2026, DOI `10.1109/iceesi68020.2026.11583598`, first author, 6 authors |
+| 2026-10-12 | EEE affiliation (BIO-01, partial) | Crossref affiliation field on RES-01 | Corroborated: Faridpur Engineering College, Dept of EEE; degree/dates still pending |
+| 2026-10-12 | AURA / Voice Mind repos (PRJ-01, PRJ-03) | GitHub REST API repo listing (56 public repos) | Not found: no public repo clearly matching AURA, Voice Mind, or ACORD (`accord25_extractor` has no description). Links stay unresolved. |
+
+No private evidence was collected or stored. Owner-supplied secrets and contact details never enter this file.

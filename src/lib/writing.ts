@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { eligibleOnly, isEligible } from "./eligibility";
 
 export const ArticleMetaSchema = z.object({
   slug: z.string(),
@@ -6,6 +7,7 @@ export const ArticleMetaSchema = z.object({
   summary: z.string().max(300),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   tags: z.array(z.string()),
+  published: z.boolean(),
 });
 
 export type ArticleMeta = z.infer<typeof ArticleMetaSchema>;
@@ -27,4 +29,16 @@ export async function getArticleMeta(slug: string): Promise<ArticleMeta> {
 export async function getAllArticleMeta(): Promise<ArticleMeta[]> {
   const metas = await Promise.all(ARTICLE_SLUGS.map((slug) => getArticleMeta(slug)));
   return metas.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export async function getPublishedArticleMeta(slug: string): Promise<ArticleMeta> {
+  const meta = await getArticleMeta(slug);
+  if (!isEligible(meta)) {
+    throw new Error(`Article "${slug}" is not published`);
+  }
+  return meta;
+}
+
+export async function getAllPublishedArticleMeta(): Promise<ArticleMeta[]> {
+  return eligibleOnly(await getAllArticleMeta());
 }

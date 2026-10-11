@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getAllResearchMeta } from "@/lib/research";
+import { getAllPublishedResearchMeta } from "@/lib/research";
 
 export default async function ResearchPage() {
-  const entries = await getAllResearchMeta();
+  const entries = await getAllPublishedResearchMeta();
   return (
     <article>
       <h1>Research</h1>

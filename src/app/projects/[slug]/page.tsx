@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { PROJECT_SLUGS, getProjectMeta } from "@/lib/projects";
+import { getPublishedProjectMeta } from "@/lib/projects";
 
-export function generateStaticParams() {
-  return PROJECT_SLUGS.map((slug) => ({ slug }));
-}
+// No generateStaticParams while no project is published: Cache Components
+// rejects empty static-param lists. This route renders on demand and returns
+// 404 for unpublished or unknown slugs. Re-add static params once the first
+// case study is published.
+export const instant = false;
 
 export async function generateMetadata({
   params,
@@ -13,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   try {
-    const meta = await getProjectMeta((await params).slug);
+    const meta = await getPublishedProjectMeta((await params).slug);
     return { title: `${meta.title} — Projects`, description: meta.summary };
   } catch {
     return { title: "Project not found" };
@@ -28,7 +30,7 @@ export default async function ProjectDetailPage({
   const slug = (await params).slug;
   let meta;
   try {
-    meta = await getProjectMeta(slug);
+    meta = await getPublishedProjectMeta(slug);
   } catch {
     notFound();
   }

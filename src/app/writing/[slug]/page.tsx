@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { ARTICLE_SLUGS, getArticleMeta } from "@/lib/writing";
+import { getPublishedArticleMeta } from "@/lib/writing";
 
-export function generateStaticParams() {
-  return ARTICLE_SLUGS.map((slug) => ({ slug }));
-}
+// No generateStaticParams while no article is published: Cache Components
+// rejects empty static-param lists. This route renders on demand and returns
+// 404 for unpublished or unknown slugs. Re-add static params once the first
+// article is published.
+export const instant = false;
 
 export async function generateMetadata({
   params,
@@ -13,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   try {
-    const meta = await getArticleMeta((await params).slug);
+    const meta = await getPublishedArticleMeta((await params).slug);
     return { title: `${meta.title} — Writing`, description: meta.summary };
   } catch {
     return { title: "Article not found" };
@@ -28,7 +30,7 @@ export default async function ArticlePage({
   const slug = (await params).slug;
   let meta;
   try {
-    meta = await getArticleMeta(slug);
+    meta = await getPublishedArticleMeta(slug);
   } catch {
     notFound();
   }

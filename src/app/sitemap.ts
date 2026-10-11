@@ -1,15 +1,20 @@
 import type { MetadataRoute } from "next";
-import { ARTICLE_SLUGS } from "@/lib/writing";
-import { PROJECT_SLUGS } from "@/lib/projects";
-import { RESEARCH_SLUGS } from "@/lib/research";
+import { getAllPublishedArticleMeta } from "@/lib/writing";
+import { getAllPublishedProjectMeta } from "@/lib/projects";
+import { getAllPublishedResearchMeta } from "@/lib/research";
 import { siteUrl } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [projects, research, articles] = await Promise.all([
+    getAllPublishedProjectMeta(),
+    getAllPublishedResearchMeta(),
+    getAllPublishedArticleMeta(),
+  ]);
   const statics = ["", "/projects", "/research", "/writing", "/about", "/contact", "/resume"];
   const dynamics = [
-    ...PROJECT_SLUGS.map((s) => `/projects/${s}`),
-    ...RESEARCH_SLUGS.map((s) => `/research/${s}`),
-    ...ARTICLE_SLUGS.map((s) => `/writing/${s}`),
+    ...projects.map((p) => `/projects/${p.slug}`),
+    ...research.map((r) => `/research/${r.slug}`),
+    ...articles.map((a) => `/writing/${a.slug}`),
   ];
   return [...statics, ...dynamics].map((path) => ({ url: `${siteUrl}${path}` }));
 }

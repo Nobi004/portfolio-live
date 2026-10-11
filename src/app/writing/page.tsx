@@ -1,8 +1,16 @@
 import Link from "next/link";
-import { getAllArticleMeta } from "@/lib/writing";
+import { getAllPublishedArticleMeta } from "@/lib/writing";
 
 export default async function WritingPage() {
-  const articles = await getAllArticleMeta();
+  const articles = await getAllPublishedArticleMeta();
+  if (articles.length === 0) {
+    return (
+      <article>
+        <h1>Writing</h1>
+        <p>Technical articles are under review and will appear here once verified.</p>
+      </article>
+    );
+  }
   return (
     <article>
       <h1>Writing</h1>

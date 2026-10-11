@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { eligibleOnly, isEligible } from "./eligibility";
 
 export const ResearchMetaSchema = z.object({
   slug: z.string(),
@@ -10,6 +11,7 @@ export const ResearchMetaSchema = z.object({
   year: z.string().regex(/^\d{4}$/).optional(),
   doiUrl: z.string().url().optional(),
   bibtex: z.string().optional(),
+  published: z.boolean(),
 });
 
 export type ResearchMeta = z.infer<typeof ResearchMetaSchema>;
@@ -34,4 +36,16 @@ export async function getResearchMeta(slug: string): Promise<ResearchMeta> {
 
 export async function getAllResearchMeta(): Promise<ResearchMeta[]> {
   return Promise.all(RESEARCH_SLUGS.map((slug) => getResearchMeta(slug)));
+}
+
+export async function getPublishedResearchMeta(slug: string): Promise<ResearchMeta> {
+  const meta = await getResearchMeta(slug);
+  if (!isEligible(meta)) {
+    throw new Error(`Research entry "${slug}" is not published`);
+  }
+  return meta;
+}
+
+export async function getAllPublishedResearchMeta(): Promise<ResearchMeta[]> {
+  return eligibleOnly(await getAllResearchMeta());
 }

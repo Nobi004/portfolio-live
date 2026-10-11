@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import { RESEARCH_SLUGS, getResearchMeta } from "@/lib/research";
+import { getAllPublishedResearchMeta, getPublishedResearchMeta } from "@/lib/research";
 
-export function generateStaticParams() {
-  return RESEARCH_SLUGS.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const metas = await getAllPublishedResearchMeta();
+  return metas.map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({
@@ -13,7 +14,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   try {
-    const meta = await getResearchMeta((await params).slug);
+    const meta = await getPublishedResearchMeta((await params).slug);
     return { title: `${meta.title} — Research`, description: meta.summary };
   } catch {
     return { title: "Research entry not found" };
@@ -28,7 +29,7 @@ export default async function ResearchDetailPage({
   const slug = (await params).slug;
   let meta;
   try {
-    meta = await getResearchMeta(slug);
+    meta = await getPublishedResearchMeta(slug);
   } catch {
     notFound();
   }

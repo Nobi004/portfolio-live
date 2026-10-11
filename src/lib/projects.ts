@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { eligibleOnly, isEligible } from "./eligibility";
 
 export const ProjectMetaSchema = z.object({
   slug: z.string(),
@@ -9,6 +10,7 @@ export const ProjectMetaSchema = z.object({
   status: z.enum(["ongoing", "shipped", "research", "archived"]),
   stack: z.array(z.string()),
   featured: z.boolean(),
+  published: z.boolean(),
   github: z.string().url().optional(),
   demo: z.string().url().optional(),
   paper: z.string().url().optional(),
@@ -34,4 +36,16 @@ export async function getProjectMeta(slug: string): Promise<ProjectMeta> {
 
 export async function getAllProjectMeta(): Promise<ProjectMeta[]> {
   return Promise.all(PROJECT_SLUGS.map((slug) => getProjectMeta(slug)));
+}
+
+export async function getPublishedProjectMeta(slug: string): Promise<ProjectMeta> {
+  const meta = await getProjectMeta(slug);
+  if (!isEligible(meta)) {
+    throw new Error(`Project "${slug}" is not published`);
+  }
+  return meta;
+}
+
+export async function getAllPublishedProjectMeta(): Promise<ProjectMeta[]> {
+  return eligibleOnly(await getAllProjectMeta());
 }
