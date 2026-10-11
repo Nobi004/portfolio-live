@@ -29,7 +29,7 @@
 - `src/content/projects/voice-mind.mdx` — shipped voice-RAG case study.
 - `src/components/diagrams/aura-architecture.tsx` — accessible inline-SVG logical architecture.
 - `src/app/projects/page.tsx` (modify) — featured cards from `getAllProjectMeta()`.
-- `src/app/projects/[slug]/page.tsx` — detail page, `generateStaticParams`, `generateMetadata`, `dynamicParams = false`.
+- `src/app/projects/[slug]/page.tsx` — detail page, `generateStaticParams`, `generateMetadata` (no `dynamicParams` export: rejected under `cacheComponents`; unknown slugs 404 via `notFound()`).
 
 ### Task 1: Typed project content pipeline
 
@@ -328,7 +328,7 @@ git commit -m "feat: add ACORD and Voice Mind draft case studies"
 
 **Interfaces:**
 - Consumes: `getAllProjectMeta`, `getProjectMeta`, `PROJECT_SLUGS` from Task 1; MDX default exports from Tasks 2–3
-- Produces: routes `/projects`, `/projects/[slug]` with `dynamicParams = false`
+- Produces: routes `/projects`, `/projects/[slug]` (unknown slugs 404 via `notFound()`; no `dynamicParams` export — incompatible with `cacheComponents`)
 
 - [ ] **Step 1: Rewrite the projects index**
 
@@ -369,8 +369,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { PROJECT_SLUGS, getProjectMeta } from "@/lib/projects";
-
-export const dynamicParams = false;
 
 export function generateStaticParams() {
   return PROJECT_SLUGS.map((slug) => ({ slug }));
