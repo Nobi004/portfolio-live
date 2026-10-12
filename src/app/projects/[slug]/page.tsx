@@ -43,6 +43,20 @@ export default async function ProjectDetailPage({
       <p>{meta.tagline}</p>
       <p>Role: {meta.role}</p>
       <p>Stack: {meta.stack.join(", ")}</p>
+      {(meta.github || meta.demo) && (
+        <ul aria-label="Project links">
+          {meta.github && (
+            <li>
+              <a href={meta.github}>Source repository</a>
+            </li>
+          )}
+          {meta.demo && (
+            <li>
+              <a href={meta.demo}>Live demo</a>
+            </li>
+          )}
+        </ul>
+      )}
       <Post />
     </article>
   );
