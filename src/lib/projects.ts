@@ -18,7 +18,7 @@ export const ProjectMetaSchema = z.object({
 
 export type ProjectMeta = z.infer<typeof ProjectMetaSchema>;
 
-export const PROJECT_SLUGS = ["aura", "document-intelligence", "voice-mind"] as const;
+export const PROJECT_SLUGS = ["aura", "document-intelligence", "voice-mind", "careeros"] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
 
