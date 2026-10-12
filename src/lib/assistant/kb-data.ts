@@ -39,6 +39,42 @@ export const KB_CHUNKS: KbChunk[] = [
     "text": "- Only the runtime kernel (layer 2 of 5) is implemented; interaction, cognitive services, execution agents, and storage layers are future work per the project roadmap.\n- Observability is stubbed (`logger`, `metrics`, `tracing` wrappers), not a full pipeline.\n- The three shipped providers are demonstration capabilities, not production tool integrations.\n- Benchmark figures are project-reported; independent reproduction is pending.\nNext steps follow the layered design: cognitive services (reasoning, memory, planning), real capability providers, and completed observability."
   },
   {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "Overview",
+    "text": "Full-stack job discovery, resume feedback, and application tracking, live on Azure free tier. Shipped consumer platform for personalized job discovery: multi-source search with 10-factor ranking and dedup, resume upload with local-rules ATS feedback, interview prep, Telegram digests, and application tracking. Live free deployment verified October 2026 (51 Python + 15 frontend tests, lint, types, production build, browser checks). Paid AI and automatic applications intentionally disabled. Sole contributor (Nobi004): backend, frontend, search pipeline, Telegram integration, Docker deployment, and release verification."
+  },
+  {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "01 / Problem",
+    "text": "Job seekers juggle disconnected tools: job boards, resume editors, spreadsheets for tracking, and interview notes. CareerOS brings discovery, resume feedback, preparation, and tracking into one personal workspace — explicitly not an \"apply everywhere\" bot: tracking an application never submits it; users apply through the original listing."
+  },
+  {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "02 / Architecture",
+    "text": "Profile and preferences compile into a search strategy (synonym expansion, keyword optimization), sources are queried concurrently with retry and rate limiting, results are normalized into one schema, deduplicated (exact hash plus fuzzy similarity), filtered against job memory (seen, saved, ignored, applied), scored, ranked, and delivered to the dashboard and Telegram digest:\n- **Backend** — FastAPI + SQLAlchemy 2.x + Pydantic v2; 20 route modules (auth, profile, search, applications, Telegram, dashboard, billing, ATS, outreach); 14 model files covering 30+ tables; JWT auth with PBKDF2 hashing.\n- **Search pipeline** — strategy builder, multi-source aggregator (Remotive, RemoteOK, Wellfound, YC, StartupJobs, plus Bangladesh sources), 10-factor weighted scorer (role fit 30%, skill fit 25%, experience 15%, remainder across location, stack, company, salary), ranker blending match score, freshness, novelty, and preference.\n- **Scheduler and alerts** — APScheduler for periodic runs with duplicate protection; Telegram digests with save/ignore/prepare actions.\n- **Frontend** — Next.js 14 dashboard (13 pages): profile, search settings, saved jobs, job detail, application workspace.\n- **Depl"
+  },
+  {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "03 / Engineering decisions",
+    "text": "- **Local rules instead of paid AI in the free tier.** Resume ATS feedback and skill-gap analysis run on local heuristics, keeping the free deployment cost-free and deterministic. The trade-off is shallower feedback than LLM generation; paid generation exists in the codebase but stays disabled live.\n- **Explicit non-goals.** No automatic application submission, no continuous background workers in free mode, no email/password registration (Google sign-in only). Each exclusion is documented on the live site.\n- **History-aware search.** Job memory filters already-seen roles before ranking, so repeat searches surface only new opportunities; fuzzy dedup (0.65 threshold) merges cross-source duplicates.\n- **Security hardening as releases, not afterthoughts.** Past releases closed IDOR and data-leakage gaps, separated staff login from customer auth, removed secrets into environment configuration (gitleaks + baseline tracked), and deploy through Azure OIDC without stored credentials."
+  },
+  {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "04 / Evidence",
+    "text": "- **Live deployment**: [careeros-app.azurewebsites.net](https://careeros-app.azurewebsites.net) (public landing, Google sign-in workspace, staff panel behind separate credentials).\n- **Verified release, October 11, 2026**: application commit `ed23e1d` passed build and deployment; both live release markers matched; API health passed. Validation: 51 Python + 15 frontend regression cases, lint, type checks, production build, and browser checks over customer workflows including a fictional resume upload and Telegram delivery.\n- **Source repository**: private (`Nobi004/Job_apply_agent`), sole contributor Nobi004; MIT license. Repository contents (structure, release notes, and validation summaries) supplied by the owner for this write-up.\n- **Delivery history**: 19 Azure deployments; conventional-commit history with security, testing, and deployment gates."
+  },
+  {
+    "sourceRoute": "/projects/careeros",
+    "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
+    "heading": "05 / Limitations and next steps",
+    "text": "- The live free tier runs on Azure F1 quotas: SQLite instead of PostgreSQL, local file storage instead of Blob storage, cached Remotive feed with 24-hour listing delay and refreshes at most every six hours.\n- Disabled live: paid AI generation, billing/subscriptions, continuous scheduling, email delivery, password recovery.\n- Authenticated staff browser testing was still pending at the last verified release; checks do not establish exhaustive coverage.\n- No independent performance or security audit beyond the project's own gates.\nNext steps per the codebase's own split: enabling the already-implemented billing, scheduler, and paid-AI modules beyond the free tier, and completing staff-side verification."
+  },
+  {
     "sourceRoute": "/research/insulator-fault-detection",
     "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Overview",
