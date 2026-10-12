@@ -42,7 +42,7 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceRoute": "/projects/careeros",
     "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
     "heading": "Overview",
-    "text": "Full-stack job discovery, resume feedback, and application tracking, live on Azure free tier. Shipped consumer platform for personalized job discovery: multi-source search with 10-factor ranking and dedup, resume upload with local-rules ATS feedback, interview prep, Telegram digests, and application tracking. Live free deployment verified October 2026 (51 Python + 15 frontend tests, lint, types, production build, browser checks). Paid AI and automatic applications intentionally disabled. Sole contributor (Nobi004): backend, frontend, search pipeline, Telegram integration, Docker deployment, and release verification."
+    "text": "Full-stack job discovery, resume feedback, and application tracking, live on Azure free tier. Shipped consumer platform for personalized job discovery: multi-source search with 10-factor ranking and dedup, resume upload with local-rules ATS feedback, interview prep, Telegram digests, and application tracking. Live free deployment verified October 2026 (51 Python + 15 frontend tests, lint, types, production build, browser checks). Paid AI and automatic applications intentionally disabled. Sole contributor across two accounts (Mahmudun-Nobi 378 commits, Nobi004 4 commits, per public contribution history): backend, frontend, search pipeline, Telegram integration, Docker deployment, and release verification."
   },
   {
     "sourceRoute": "/projects/careeros",
@@ -66,7 +66,7 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceRoute": "/projects/careeros",
     "sourceTitle": "CareerOS — Personalized Job Discovery Platform",
     "heading": "04 / Evidence",
-    "text": "- **Live deployment**: [careeros-app.azurewebsites.net](https://careeros-app.azurewebsites.net) (public landing, Google sign-in workspace, staff panel behind separate credentials).\n- **Verified release, October 11, 2026**: application commit `ed23e1d` passed build and deployment; both live release markers matched; API health passed. Validation: 51 Python + 15 frontend regression cases, lint, type checks, production build, and browser checks over customer workflows including a fictional resume upload and Telegram delivery.\n- **Source repository**: private (`Nobi004/Job_apply_agent`), sole contributor Nobi004; MIT license. Repository contents (structure, release notes, and validation summaries) supplied by the owner for this write-up.\n- **Delivery history**: 19 Azure deployments; conventional-commit history with security, testing, and deployment gates."
+    "text": "- **Live deployment**: [careeros-app.azurewebsites.net](https://careeros-app.azurewebsites.net) (public landing, Google sign-in workspace, staff panel behind separate credentials).\n- **Verified release, October 11, 2026**: application commit `ed23e1d` passed build and deployment; both live release markers matched; API health passed. Validation: 51 Python + 15 frontend regression cases, lint, type checks, production build, and browser checks over customer workflows including a fictional resume upload and Telegram delivery.\n- **Source repository**: [Nobi004/Job_apply_agent](https://github.com/Nobi004/Job_apply_agent) (public, MIT). Contribution history: 378 commits (Mahmudun-Nobi) + 4 (Nobi004).\n- **Delivery history**: 19 Azure deployments; conventional-commit history with security, testing, and deployment gates."
   },
   {
     "sourceRoute": "/projects/careeros",
