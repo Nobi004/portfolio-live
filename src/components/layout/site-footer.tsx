@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { SystemGlyph } from "@/components/diagrams/system-glyph";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-shell">
-        <p>Md. Mahmudun Nobi — AI Engineer, Dhaka, Bangladesh</p>
+        <p className="footer-identity">
+          <SystemGlyph />
+          <span>Md. Mahmudun Nobi — AI Engineer, Dhaka, Bangladesh</span>
+        </p>
         <ul>
           <li>
             <Link href="/">Home</Link>

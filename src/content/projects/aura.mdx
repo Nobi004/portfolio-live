@@ -1,4 +1,5 @@
 import { AuraArchitecture } from "@/components/diagrams/aura-architecture";
+import { Figure } from "@/components/content/figure";
 
 export const metadata = {
   slug: "aura",
@@ -19,7 +20,9 @@ How can an AI system coordinate tools and applications while maintaining executi
 
 ## 02 / Architecture
 
-<AuraArchitecture />
+<Figure caption="AURA v0.1.0 Runtime Core (layer 2 of 5)" note="Simplified view; full architecture in the repository docs.">
+  <AuraArchitecture />
+</Figure>
 
 Simplified logical view of the v0.1.0 Runtime Core. The platform is designed in five layers (interaction, runtime kernel, cognitive services, execution, storage); the implemented core is layer 2:
 

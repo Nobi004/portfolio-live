@@ -1,3 +1,6 @@
+import { CareerosPipeline } from "@/components/diagrams/careeros-pipeline";
+import { Figure } from "@/components/content/figure";
+
 export const metadata = {
   slug: "careeros",
   title: "CareerOS — Personalized Job Discovery Platform",
@@ -19,6 +22,10 @@ Job seekers juggle disconnected tools: job boards, resume editors, spreadsheets 
 ## 02 / Architecture
 
 Profile and preferences compile into a search strategy (synonym expansion, keyword optimization), sources are queried concurrently with retry and rate limiting, results are normalized into one schema, deduplicated (exact hash plus fuzzy similarity), filtered against job memory (seen, saved, ignored, applied), scored, ranked, and delivered to the dashboard and Telegram digest:
+
+<Figure caption="CareerOS discovery pipeline (full platform)" note="Free deployment runs a subset; see limitations.">
+  <CareerosPipeline />
+</Figure>
 
 - **Backend** — FastAPI + SQLAlchemy 2.x + Pydantic v2; 20 route modules (auth, profile, search, applications, Telegram, dashboard, billing, ATS, outreach); 14 model files covering 30+ tables; JWT auth with PBKDF2 hashing.
 - **Search pipeline** — strategy builder, multi-source aggregator (Remotive, RemoteOK, Wellfound, YC, StartupJobs, plus Bangladesh sources), 10-factor weighted scorer (role fit 30%, skill fit 25%, experience 15%, remainder across location, stack, company, salary), ranker blending match score, freshness, novelty, and preference.

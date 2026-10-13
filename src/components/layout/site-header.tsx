@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { SystemGlyph } from "@/components/diagrams/system-glyph";
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -31,6 +32,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-shell site-header-inner">
         <Link href="/" className="site-identity">
+          <SystemGlyph />
           Mahmudun Nobi
         </Link>
         <button
