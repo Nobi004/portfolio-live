@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { AuraArchitecture } from "@/components/diagrams/aura-architecture";
 import { getAllPublishedProjectMeta } from "@/lib/projects";
 import { getAllPublishedResearchMeta } from "@/lib/research";
 
 export default async function HomePage() {
   const research = await getAllPublishedResearchMeta();
   const featured = (await getAllPublishedProjectMeta()).filter((p) => p.featured);
+  const [flagship, ...restFeatured] = featured;
   return (
     <>
       <section aria-labelledby="hero-heading" className="hero hero-signature">
@@ -63,19 +65,41 @@ export default async function HomePage() {
             <a href="https://github.com/Nobi004">github.com/Nobi004</a>.
           </p>
         ) : (
-          <ul className="entry-list">
-            {featured.map((p) => (
-              <li key={p.slug}>
-                <h3>
-                  <Link href={`/projects/${p.slug}`}>{p.title}</Link>
-                </h3>
-                <p className="entry-meta">
-                  Status: {p.status} · {p.stack.join(", ")}
-                </p>
-                <p>{p.tagline}</p>
-              </li>
-            ))}
-          </ul>
+          <>
+            {flagship ? (
+              <article className="flagship-panel">
+                <div>
+                  <h3>
+                    <Link href={`/projects/${flagship.slug}`}>{flagship.title}</Link>
+                  </h3>
+                  <p className="entry-meta">
+                    Status: {flagship.status} · {flagship.stack.join(", ")}
+                  </p>
+                  <p>{flagship.tagline}</p>
+                  <p>{flagship.summary}</p>
+                  <p>
+                    <Link href={`/projects/${flagship.slug}`}>Read the case study</Link>
+                  </p>
+                </div>
+                {flagship.slug === "aura" ? <AuraArchitecture /> : null}
+              </article>
+            ) : null}
+            {restFeatured.length > 0 ? (
+              <ul className="entry-list">
+                {restFeatured.map((p) => (
+                  <li key={p.slug}>
+                    <h3>
+                      <Link href={`/projects/${p.slug}`}>{p.title}</Link>
+                    </h3>
+                    <p className="entry-meta">
+                      Status: {p.status} · {p.stack.join(", ")}
+                    </p>
+                    <p>{p.tagline}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </>
         )}
         <p>
           <Link href="/projects">All projects</Link>
@@ -84,7 +108,7 @@ export default async function HomePage() {
 
       <section aria-labelledby="approach-heading" className="home-section">
         <h2 id="approach-heading">How I work</h2>
-        <ul>
+        <ul className="principles-grid">
           <li>Reliability before novelty: systems must hold up outside the demo.</li>
           <li>Evaluation with reproducible methods, not unverified numbers.</li>
           <li>Explainability and governance where automated actions have consequences.</li>
@@ -96,7 +120,7 @@ export default async function HomePage() {
         <h2 id="research-heading">Research</h2>
         <ul className="entry-list">
           {research.map((entry) => (
-            <li key={entry.slug}>
+            <li key={entry.slug} className="citation-row">
               <h3>
                 <Link href={`/research/${entry.slug}`}>{entry.title}</Link>
               </h3>
@@ -106,6 +130,12 @@ export default async function HomePage() {
                 {entry.year ? ` · ${entry.year}` : ""}
               </p>
               <p>{entry.tagline}</p>
+              {entry.bibtex ? (
+                <details>
+                  <summary>BibTeX</summary>
+                  <pre>{entry.bibtex}</pre>
+                </details>
+              ) : null}
             </li>
           ))}
         </ul>
