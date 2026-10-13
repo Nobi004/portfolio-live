@@ -38,13 +38,16 @@ export default async function ProjectDetailPage({
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
     <article className="prose-stock">
-      <p className="entry-meta">Case study · Status: {meta.status}</p>
+      <div className="case-header">
+      <p className="entry-meta">
+        Case study · <span className="status-chip">{meta.status}</span>
+      </p>
       <h1>{meta.title}</h1>
       <p>{meta.tagline}</p>
       <p>Role: {meta.role}</p>
       <p>Stack: {meta.stack.join(", ")}</p>
       {(meta.github || meta.demo) && (
-        <ul aria-label="Project links">
+        <ul className="case-links" aria-label="Project links">
           {meta.github && (
             <li>
               <a href={meta.github}>Source repository</a>
@@ -57,6 +60,7 @@ export default async function ProjectDetailPage({
           )}
         </ul>
       )}
+      </div>
       <Post />
     </article>
   );

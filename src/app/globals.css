@@ -452,3 +452,41 @@ pre,
     animation-duration: 0.01ms !important;
   }
 }
+
+.case-header {
+  max-width: 46rem;
+  margin-bottom: 2rem;
+}
+
+.status-chip {
+  display: inline-block;
+  font-size: 0.8125rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.125rem 0.75rem;
+  min-height: 28px;
+}
+
+.case-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.case-links a {
+  color: var(--accent);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.decision {
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  margin-block: 1.5rem;
+  max-width: 46rem;
+}
