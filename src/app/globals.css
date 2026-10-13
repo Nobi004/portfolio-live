@@ -9,6 +9,12 @@
   --secondary: #52525b;
   --accent: #086b83;
   --border: #d4d4d8;
+  --surface-raised: #ffffff;
+  --rule: #d4d4d8;
+  --space-section: clamp(3rem, 8vw, 6rem);
+  --radius: 8px;
+  --font-size-hero: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
+  --font-size-section: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
 }
 
 .dark {
@@ -18,6 +24,8 @@
   --secondary: #b4b4bf;
   --accent: #67d4e8;
   --border: #33333d;
+  --surface-raised: #1c1c24;
+  --rule: #2a2a33;
 }
 
 @theme inline {
