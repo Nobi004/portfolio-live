@@ -218,6 +218,28 @@ pre,
   color: var(--secondary);
 }
 
+.hero-signature {
+  padding-block: 5rem 4rem;
+}
+.hero-rule {
+  width: 4rem;
+  border-top: 2px solid var(--accent);
+  margin: 1.5rem 0 0;
+}
+@keyframes hero-settle {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-signature > * {
+  animation: hero-settle 300ms ease-out both;
+}
+.hero-signature > *:nth-child(2) { animation-delay: 60ms; }
+.hero-signature > *:nth-child(3) { animation-delay: 120ms; }
+.hero-signature > *:nth-child(4) { animation-delay: 180ms; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-signature > * { animation: none; }
+}
+
 .home-section {
   padding-block: 3rem;
   border-top: 1px solid var(--border);

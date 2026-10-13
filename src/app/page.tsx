@@ -7,9 +7,10 @@ export default async function HomePage() {
   const featured = (await getAllPublishedProjectMeta()).filter((p) => p.featured);
   return (
     <>
-      <section aria-labelledby="hero-heading" className="hero">
+      <section aria-labelledby="hero-heading" className="hero hero-signature">
         <p className="hero-kicker mono">Md. Mahmudun Nobi / AI Engineer</p>
         <h1 id="hero-heading">Building intelligent systems that work beyond the prototype.</h1>
+        <p className="hero-rule" aria-hidden="true" />
         <p className="hero-sub">
           AI Engineer focused on agentic systems, applied machine learning, document intelligence,
           and production software architecture.
