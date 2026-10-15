@@ -15,17 +15,17 @@ export interface Message {
 export function ChatMessage({ message }: { message: Message }) {
   if (message.role === "user") {
     return (
-      <p>
+      <p className="ask-message-user">
         <strong>You: </strong>
         {message.text}
       </p>
     );
   }
   return (
-    <div>
+    <div className="ask-message-assistant">
       <p>{message.text}</p>
       {message.sources && message.sources.length > 0 && (
-        <ul aria-label="Sources">
+        <ul className="ask-sources" aria-label="Sources">
           {message.sources.map((s) => (
             <li key={s.route}>
               <Link href={s.route}>{s.title}</Link>

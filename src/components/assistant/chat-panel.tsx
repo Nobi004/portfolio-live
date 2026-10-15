@@ -95,12 +95,12 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <section aria-label="Ask about my work" aria-live="polite">
-      <button type="button" onClick={onClose} aria-label="Close assistant">
+    <section className="ask-panel" aria-label="Ask about my work" aria-live="polite">
+      <button type="button" className="ask-close" onClick={onClose} aria-label="Close assistant">
         Close
       </button>
       {messages.length === 0 && (
-        <ul>
+        <ul className="ask-suggestions">
           {SUGGESTIONS.map((q) => (
             <li key={q}>
               <button type="button" onClick={() => void send(q)} disabled={busy}>
@@ -110,11 +110,14 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
           ))}
         </ul>
       )}
-      {messages.map((m) => (
-        <ChatMessage key={m.id} message={m} />
-      ))}
-      <p>{DISCLAIMER}</p>
+      <div className="ask-messages" aria-live="off">
+        {messages.map((m) => (
+          <ChatMessage key={m.id} message={m} />
+        ))}
+      </div>
+      <p className="ask-disclaimer">{DISCLAIMER}</p>
       <form
+        className="ask-form"
         onSubmit={(e) => {
           e.preventDefault();
           void send(input);
@@ -123,13 +126,14 @@ export function ChatPanel({ onClose }: { onClose: () => void }) {
         <label htmlFor="ask-input">Ask about my work</label>
         <input
           id="ask-input"
+          className="ask-input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           maxLength={1000}
           disabled={busy}
           autoComplete="off"
         />
-        <button type="submit" disabled={busy || !input.trim()}>
+        <button type="submit" className="ask-send" disabled={busy || !input.trim()}>
           Send
         </button>
       </form>

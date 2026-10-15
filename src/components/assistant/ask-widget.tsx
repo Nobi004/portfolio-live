@@ -12,6 +12,7 @@ export function AskWidget() {
       ) : (
         <button
           type="button"
+          className="ask-launcher"
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-label="Open the Ask About My Work assistant"
