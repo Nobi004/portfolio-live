@@ -6,7 +6,6 @@ import { KB_CHUNKS } from "../kb-data";
 const UNPUBLISHED_SLUGS = [
   "document-intelligence",
   "voice-mind",
-  "wbfvd-colorization",
   "aura-runtime-research",
   "governed-agent-runtime",
   "evaluate-agentic-ai",

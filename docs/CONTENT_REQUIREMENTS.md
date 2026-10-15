@@ -22,7 +22,7 @@ marked verified below (verification log at the end of this file).
 | PRJ-02 | ACORD Document Intelligence has draft role, stack, dataset, pipeline | Approved contribution statement, anonymized samples, evaluation protocol, permission | No client documents or accuracy claims |
 | PRJ-03 | Voice Mind currently says shipped | Working release/demo, platforms, role, implementation evidence | Treat shipped status and adoption as unverified |
 | RES-01 | Insulator fault detection currently says published | VERIFIED 2026-10-12 via Crossref: "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection", first author Md. Mahmudun Nobi (+5 co-authors), publisher IEEE, DOI `10.1109/iceesi68020.2026.11583598`, venue ICEESI 2026 (Raigarh, India). Status `published` may be advertised with this citation. | Advertise only with the verified citation + DOI link |
-| RES-02 | WBFVD colorization method and ongoing status | Approved manuscript/experiment, dataset, outputs, current status | Keep unpublished pending review |
+| RES-02 | WBFVD colorization method and ongoing status | VERIFIED 2026-10-13 via Crossref: "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset", owner is co-author (6th of 6; first author Mohammed Ahsan Hossain), publisher IEEE, DOI `10.1109/ncim65934.2025.11160093`, venue NCIM 2025 (Gazipur, Bangladesh). Status `published` may be advertised with this citation. | Advertise only with the verified citation + DOI link |
 | RES-03 | AURA runtime research described as experiment | Objective, method, versioned artifacts, reproducible findings | No peer-review implication |
 | WRT-01 | Two draft engineering articles exist | Author review, original experience, checked references and code | Do not present drafts as published articles |
 | CON-01 | Contact email + LinkedIn | RESOLVED 2026-10-13: email `mdmnb435@gmail.com` supplied directly by owner (`gamil.com` spelling caught via MX check, confirmed as gmail). Format valid; inbox deliverability not independently verified. LinkedIn owner-supplied, browser check still advised. | Published; keep inbox monitored |
@@ -72,6 +72,8 @@ Before release, the owner confirms identity, resume, public contact, availabilit
 | 2026-10-12 | Job Apply Agent (JOB-01) | GitHub REST API `repos/Nobi004/Job_apply_agent` + public repo name search | 404: unresolved. Owner must supply exact URL/visibility. |
 | 2026-10-12 | CareerOS repo evidence (JOB-01) | Owner-supplied private repo page (structure, README, release notes, contributor list) + live product corroboration | Verified: sole contributor, stack, Oct 2026 release record. Case study published from this evidence. |
 | 2026-10-12 | LinkedIn URL (CON-01) | Owner-supplied `https://www.linkedin.com/in/nobi004/`; automated fetch blocked (HTTP 999) | Accepted as owner-approved; browser eyeball-check still advised. |
+| 2026-10-12 | Job repo pub/priv flip (JOB-01) | GitHub REST API + unauthenticated curl, twice | Briefly public (378 + 4 commits verified, case study linked), 404 again within the hour; delinked, history recorded as verified-while-public. |
+| 2026-10-13 | WBFVD paper (RES-02) | Owner-supplied IEEE Xplore URL (document/11160093) + Crossref author/title lookup | Verified: IEEE NCIM 2025, DOI `10.1109/ncim65934.2025.11160093`, owner co-author (6th of 6). Entry published with citation. |
 
 No private evidence was collected or stored. Owner-supplied secrets and contact details never enter this file.
 

@@ -109,5 +109,41 @@ export const KB_CHUNKS: KbChunk[] = [
     "sourceTitle": "An Interpretable Attention-Guided Hybrid Framework for Power Line Insulator Fault Detection",
     "heading": "Limitations",
     "text": "This entry currently cites the publication record only. Datasets, metrics, and comparisons await author-approved detail; no accuracy claims are made here."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Overview",
+    "text": "IEEE NCIM 2025 conference paper on U-Net true-to-color reconstruction. Co-authored IEEE conference paper presenting WBFVD, a U-Net-based deep learning model for true-to-color reconstruction of white-background fruits and vegetables imagery. Citation verified against the Crossref publisher record."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Publication record",
+    "text": "IEEE NCIM 2025 2025 Authors: Hossain, Mohammed Ahsan and Miah, Arif and Niger, Tasnim and Shadin, Md. Mahmodul Hassen Khan and Tahiat, Nur Fathiha and Nobi, Md. Mahmudun"
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Problem",
+    "text": "Grayscale or faded imagery of produce loses the color cues buyers and downstream vision systems rely on. This work investigates learning true-to-color reconstruction for white-background fruits and vegetables imagery."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Method",
+    "text": "The paper presents WBFVD, a U-Net-based deep learning model for the task. Architecture, dataset splits, and evaluation below reflect only the publication record; an author-approved technical summary is pending."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Evidence",
+    "text": "Published in the proceedings of the 2025 2nd International Conference on Next-Generation Computing, IoT and Machine Learning (NCIM), Gazipur, Bangladesh. Publisher record: IEEE, DOI [10.1109/ncim65934.2025.11160093](https://doi.org/10.1109/ncim65934.2025.11160093). The owner is a co-author (sixth of six authors); first author Mohammed Ahsan Hossain."
+  },
+  {
+    "sourceRoute": "/research/wbfvd-colorization",
+    "sourceTitle": "WBFVD: A UNet-Based Deep Learning Model for True-to-Color Image Colorization of White-Background Fruits & Vegetables Dataset",
+    "heading": "Limitations",
+    "text": "This entry currently cites the publication record only. Datasets, metrics, and comparisons await author-approved detail; no accuracy claims are made here."
   }
 ];
