@@ -3,10 +3,12 @@ export default function ContactPage() {
     <article className="prose-stock">
       <h1>Contact</h1>
       <p>
-        The fastest way to reach me right now is through{" "}
-        <a href="https://github.com/Nobi004">GitHub (@Nobi004)</a>.
+        The fastest way to reach me is by email:{" "}
+        <a href="mailto:mdmnb435@gmail.com">mdmnb435@gmail.com</a>.
       </p>
-      <p>A direct professional email address will be published here once confirmed.</p>
+      <p>
+        You can also find me on <a href="https://github.com/Nobi004">GitHub (@Nobi004)</a>.
+      </p>
       <ul>
         <li>
           <a href="https://github.com/Nobi004">GitHub</a>

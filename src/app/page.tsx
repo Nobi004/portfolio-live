@@ -163,8 +163,8 @@ export default async function HomePage() {
       <section aria-labelledby="contact-heading" className="home-section">
         <h2 id="contact-heading">Contact</h2>
         <p>
-          The fastest way to reach me right now is through{" "}
-          <a href="https://github.com/Nobi004">GitHub</a>.{" "}
+          The fastest way to reach me is by email at{" "}
+          <a href="mailto:mdmnb435@gmail.com">mdmnb435@gmail.com</a>.{" "}
           <Link href="/contact">All contact options</Link>
         </p>
       </section>

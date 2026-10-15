@@ -34,6 +34,9 @@ export function SiteFooter() {
           <li>
             <a href="https://www.linkedin.com/in/nobi004/">LinkedIn</a>
           </li>
+          <li>
+            <a href="mailto:mdmnb435@gmail.com">Email</a>
+          </li>
         </ul>
       </div>
     </footer>
