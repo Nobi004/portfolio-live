@@ -663,3 +663,84 @@ pre,
   opacity: 0.5;
   cursor: default;
 }
+
+/* OriginOS glass component kit */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.125rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.segmented-tabs {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem;
+  overflow-x: auto;
+}
+
+.segmented-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.segmented-tab:hover {
+  color: var(--foreground);
+  border-color: var(--accent);
+}
+
+.segmented-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  color: var(--foreground);
+}
+
+.disclosure {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  padding-inline: 1rem;
+}
+
+.disclosure summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.disclosure-body {
+  padding-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.button,
+.segmented-tab,
+.ask-launcher {
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+
+.button:active,
+.segmented-tab:active,
+.ask-launcher:active {
+  transform: scale(0.97);
+}
