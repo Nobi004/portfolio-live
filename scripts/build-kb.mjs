@@ -8,7 +8,13 @@ const SECTIONS = { projects: "projects", research: "research", writing: "writing
 function cleanBody(raw) {
   return raw
     .split("\n")
-    .filter((line) => !line.startsWith("import ") && line.trim() !== "")
+    .filter(
+      (line) =>
+        !line.startsWith("import ") &&
+        line.trim() !== "" &&
+        !/^\s*<\/?(section|div)\b/.test(line) &&
+        !/^\s*<\/?[A-Z][^>]*\/?>\s*$/.test(line),
+    )
     .join("\n")
     .replace(/export const metadata = \{[\s\S]*?\};/, "")
     .trim();
