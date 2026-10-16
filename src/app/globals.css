@@ -546,6 +546,7 @@ pre,
   color: var(--foreground);
   font: inherit;
   cursor: pointer;
+  box-shadow: var(--shadow-soft);
   transition: border-color 150ms ease;
 }
 .ask-launcher:hover {
@@ -556,11 +557,18 @@ pre,
   max-height: min(32rem, calc(100vh - 6rem));
   display: flex;
   flex-direction: column;
-  background: var(--surface-raised);
+  background: var(--surface-glass);
   color: var(--foreground);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
   padding: 1rem;
+}
+@supports (backdrop-filter: blur(1px)) {
+  .ask-panel {
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  }
 }
 .ask-close {
   align-self: flex-end;
