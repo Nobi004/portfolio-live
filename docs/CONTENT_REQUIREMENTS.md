@@ -74,6 +74,7 @@ Before release, the owner confirms identity, resume, public contact, availabilit
 | 2026-10-12 | LinkedIn URL (CON-01) | Owner-supplied `https://www.linkedin.com/in/nobi004/`; automated fetch blocked (HTTP 999) | Accepted as owner-approved; browser eyeball-check still advised. |
 | 2026-10-12 | Job repo pub/priv flip (JOB-01) | GitHub REST API + unauthenticated curl, twice | Briefly public (378 + 4 commits verified, case study linked), 404 again within the hour; delinked, history recorded as verified-while-public. |
 | 2026-10-13 | WBFVD paper (RES-02) | Owner-supplied IEEE Xplore URL (document/11160093) + Crossref author/title lookup | Verified: IEEE NCIM 2025, DOI `10.1109/ncim65934.2025.11160093`, owner co-author (6th of 6). Entry published with citation. |
+| 2026-10-13 | CareerOS liveness re-check (JOB-01) | Owner-confirmed fully live; 4 HTTP probes (`/` x3, `/admin/login` x1, CareerOS title asserted) | All 200, fast warm responses. Live demo link stands as verified evidence. |
 
 No private evidence was collected or stored. Owner-supplied secrets and contact details never enter this file.
 
