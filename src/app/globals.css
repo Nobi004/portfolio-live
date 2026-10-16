@@ -744,3 +744,30 @@ pre,
 .ask-launcher:active {
   transform: scale(0.97);
 }
+
+.bento-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  padding-block: 2rem 3rem;
+}
+@media (min-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .widget-span { grid-column: span 2; }
+}
+@media (min-width: 1280px) {
+  .bento-grid { grid-template-columns: repeat(4, 1fr); }
+  .widget-span { grid-column: span 2; }
+  .widget-wide { grid-column: span 4; }
+}
+.widget-clock .widget-time {
+  font-size: clamp(2rem, 1.5rem + 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.bento-grid > .glass {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.bento-grid > .hero-signature {
+  padding-block: 5rem 4rem;
+}

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { AuraArchitecture } from "@/components/diagrams/aura-architecture";
+import { GlassCard } from "@/components/ui/glass-card";
+import { ClockWidget } from "@/components/widgets/clock-widget";
 import { getAllPublishedProjectMeta } from "@/lib/projects";
 import { getAllPublishedResearchMeta } from "@/lib/research";
 
@@ -8,8 +10,8 @@ export default async function HomePage() {
   const featured = (await getAllPublishedProjectMeta()).filter((p) => p.featured);
   const [flagship, ...restFeatured] = featured;
   return (
-    <>
-      <section aria-labelledby="hero-heading" className="hero hero-signature">
+    <div className="bento-grid">
+      <GlassCard className="widget-wide widget-span hero hero-signature">
         <p className="hero-kicker mono">Md. Mahmudun Nobi / AI Engineer</p>
         <h1 id="hero-heading">Building intelligent systems that work beyond the prototype.</h1>
         <p className="hero-rule" aria-hidden="true" />
@@ -26,9 +28,13 @@ export default async function HomePage() {
           </Link>
         </p>
         <p className="hero-note">Dhaka, Bangladesh · Open to relevant AI engineering opportunities</p>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="highlights-heading" className="home-section">
+      <GlassCard>
+        <ClockWidget />
+      </GlassCard>
+
+      <GlassCard>
         <h2 id="highlights-heading">Verified highlights</h2>
         <ul className="entry-list">
           <li>
@@ -54,9 +60,9 @@ export default async function HomePage() {
             </p>
           </li>
         </ul>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="projects-heading" className="home-section">
+      <GlassCard>
         <h2 id="projects-heading">Featured engineering work</h2>
         {featured.length === 0 ? (
           <p>
@@ -104,9 +110,9 @@ export default async function HomePage() {
         <p>
           <Link href="/projects">All projects</Link>
         </p>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="approach-heading" className="home-section">
+      <GlassCard>
         <h2 id="approach-heading">How I work</h2>
         <ul className="principles-grid">
           <li>Reliability before novelty: systems must hold up outside the demo.</li>
@@ -114,9 +120,9 @@ export default async function HomePage() {
           <li>Explainability and governance where automated actions have consequences.</li>
           <li>Maintainable architecture: small units, clear boundaries, versioned review.</li>
         </ul>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="research-heading" className="home-section">
+      <GlassCard>
         <h2 id="research-heading">Research</h2>
         <ul className="entry-list">
           {research.map((entry) => (
@@ -142,32 +148,32 @@ export default async function HomePage() {
         <p>
           <Link href="/research">All research</Link>
         </p>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="writing-heading" className="home-section">
+      <GlassCard>
         <h2 id="writing-heading">Writing</h2>
         <p>
           Technical articles on agent architecture and evaluation are under review and will appear
           here once verified. <Link href="/writing">Writing archive</Link>
         </p>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="about-heading" className="home-section">
+      <GlassCard>
         <h2 id="about-heading">About</h2>
         <p>
           AI engineer in Dhaka working across agentic systems, applied ML, and production software
           — with an electrical engineering background. <Link href="/about">More about me</Link>
         </p>
-      </section>
+      </GlassCard>
 
-      <section aria-labelledby="contact-heading" className="home-section">
+      <GlassCard>
         <h2 id="contact-heading">Contact</h2>
         <p>
           The fastest way to reach me is by email at{" "}
           <a href="mailto:mdmnb435@gmail.com">mdmnb435@gmail.com</a>.{" "}
           <Link href="/contact">All contact options</Link>
         </p>
-      </section>
-    </>
+      </GlassCard>
+    </div>
   );
 }
