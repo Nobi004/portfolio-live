@@ -1,5 +1,7 @@
 import { AuraArchitecture } from "@/components/diagrams/aura-architecture";
 import { Figure } from "@/components/content/figure";
+import { AuraLayers } from "@/components/explorers/aura-layers";
+import { CaseTabs } from "@/components/content/case-tabs";
 
 export const metadata = {
   slug: "aura",
@@ -14,11 +16,23 @@ export const metadata = {
   published: true,
 };
 
+<div className="tabs-root">
+
+<CaseTabs tabs={[{ id: "problem", label: "Problem" }, { id: "architecture", label: "Architecture" }, { id: "decisions", label: "Decisions" }, { id: "evidence", label: "Evidence" }, { id: "limitations", label: "Limitations" }]} />
+
+<section id="problem" className="tab-panel tab-default">
+
 ## 01 / Problem
 
 How can an AI system coordinate tools and applications while maintaining execution control and observability? AURA answers with a runtime kernel: every capability use flows through validation, an explicit governance decision, and execution — with events, state, and evidence recorded along the way.
 
+</section>
+
+<section id="architecture" className="tab-panel">
+
 ## 02 / Architecture
+
+<AuraLayers />
 
 <Figure caption="AURA v0.1.0 Runtime Core (layer 2 of 5)" note="Simplified view; full architecture in the repository docs.">
   <AuraArchitecture />
@@ -34,6 +48,10 @@ Simplified logical view of the v0.1.0 Runtime Core. The platform is designed in 
 - **CapabilityExecutor** — orchestrates the validate → governance → execute lifecycle.
 - **Providers** — v0.1.0 ships three capability providers: `core.echo`, `core.system_info`, `core.sleep`.
 
+</section>
+
+<section id="decisions" className="tab-panel">
+
 ## 03 / Engineering decisions
 
 - **Governance between validation and execution.** The executor lifecycle runs validate → governance → execute, so an unapproved capability never reaches execution. The trade-off is a policy checkpoint on every action; the registry keeps policies central so the cost stays in one place.
@@ -41,6 +59,10 @@ Simplified logical view of the v0.1.0 Runtime Core. The platform is designed in 
 - **Validated state transitions.** The state manager accepts only legal lifecycle transitions, making illegal execution states unrepresentable rather than merely unlikely.
 - **Offline-first platform.** The runtime targets local execution across devices, avoiding a hard dependency on hosted inference for the core loop.
 - **Strict static checks.** ruff-clean and mypy-clean (0 errors across 30 source files) gates keep the kernel refactorable as cognitive layers land.
+
+</section>
+
+<section id="evidence" className="tab-panel">
 
 ## 04 / Evidence
 
@@ -51,6 +73,10 @@ Repository: [Adaptive-Intelligence-Research-Lab/AURA](https://github.com/Adaptiv
 - **3 experiments SUPPORTED** — capability independence, event reconstruction, failure isolation, with artifacts under `research/experiments/`.
 - **Benchmarks** — 265k events/sec, 4.4μs p50 latency, 0.02ms action execution, per the repository benchmark suite. Methodology and hardware were not independently reviewed; treat these as project-reported figures.
 
+</section>
+
+<section id="limitations" className="tab-panel">
+
 ## 05 / Limitations and next steps
 
 - Only the runtime kernel (layer 2 of 5) is implemented; interaction, cognitive services, execution agents, and storage layers are future work per the project roadmap.
@@ -59,3 +85,7 @@ Repository: [Adaptive-Intelligence-Research-Lab/AURA](https://github.com/Adaptiv
 - Benchmark figures are project-reported; independent reproduction is pending.
 
 Next steps follow the layered design: cognitive services (reasoning, memory, planning), real capability providers, and completed observability.
+
+</section>
+
+</div>
