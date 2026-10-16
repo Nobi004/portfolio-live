@@ -3,29 +3,69 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafafa;
-  --foreground: #111111;
-  --surface: #ffffff;
-  --secondary: #52525b;
-  --accent: #086b83;
-  --border: #d4d4d8;
-  --surface-raised: #ffffff;
-  --rule: #d4d4d8;
-  --space-section: clamp(3rem, 8vw, 6rem);
+  --background: #eef2f7;
+  --foreground: #1a1d21;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-raised: rgba(255, 255, 255, 0.9);
+  --surface-glass: rgba(255, 255, 255, 0.6);
+  --secondary: #4b5563;
+  --accent: #0b5fff;
+  --accent-violet: #5b21b6;
+  --accent-coral: #e11d48;
+  --border: rgba(26, 29, 33, 0.1);
+  --shadow-soft: 0 8px 32px rgba(27, 38, 59, 0.1);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --rule: rgba(26, 29, 33, 0.1);
   --radius: 8px;
+  --space-section: clamp(3rem, 8vw, 6rem);
   --font-size-hero: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
   --font-size-section: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
 }
-
 .dark {
-  --background: #101014;
-  --foreground: #f2f2f0;
-  --surface: #18181f;
-  --secondary: #b4b4bf;
-  --accent: #67d4e8;
-  --border: #33333d;
-  --surface-raised: #1c1c24;
-  --rule: #2a2a33;
+  --background: #0c0e13;
+  --foreground: #eef1f6;
+  --surface: rgba(22, 25, 33, 0.72);
+  --surface-raised: rgba(28, 32, 42, 0.9);
+  --surface-glass: rgba(22, 25, 33, 0.55);
+  --secondary: #aab2c0;
+  --accent: #7dd3fc;
+  --accent-violet: #c4b5fd;
+  --accent-coral: #fda4af;
+  --border: rgba(238, 241, 246, 0.12);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --rule: rgba(238, 241, 246, 0.12);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(36rem 36rem at 12% 8%, color-mix(in srgb, #dbeafe 8%, transparent), transparent 70%),
+    radial-gradient(32rem 32rem at 88% 18%, color-mix(in srgb, #ffedd5 8%, transparent), transparent 70%),
+    radial-gradient(40rem 40rem at 50% 100%, color-mix(in srgb, #d1fae5 8%, transparent), transparent 70%);
+}
+.dark body::before {
+  background:
+    radial-gradient(36rem 36rem at 12% 8%, color-mix(in srgb, #1e3a5f 12%, transparent), transparent 70%),
+    radial-gradient(32rem 32rem at 88% 18%, color-mix(in srgb, #4c1d95 12%, transparent), transparent 70%),
+    radial-gradient(40rem 40rem at 50% 100%, color-mix(in srgb, #134e4a 12%, transparent), transparent 70%);
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .glass {
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  }
 }
 
 @theme inline {

@@ -23,6 +23,11 @@ const PAIRS: Array<[string, string, string]> = [
   ["light secondary", "#52525b", "#fafafa"],
   ["light accent", "#086b83", "#fafafa"],
   ["light raised-on-canvas", "#111111", "#ffffff"],
+  ["light glass ink", "#1a1d21", "#f4f7fb"],
+  ["light accent", "#0b5fff", "#f4f7fb"],
+  ["light violet ink", "#5b21b6", "#f4f7fb"],
+  ["dark glass ink", "#eef1f6", "#14161c"],
+  ["dark accent", "#7dd3fc", "#14161c"],
 ];
 
 describe("design tokens", () => {
