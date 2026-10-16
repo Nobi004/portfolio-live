@@ -11,7 +11,7 @@ export default async function HomePage() {
   const [flagship, ...restFeatured] = featured;
   return (
     <div className="bento-grid">
-      <GlassCard className="widget-wide widget-span hero hero-signature">
+      <GlassCard className="widget-wide widget-span hero hero-signature" labelledBy="hero-heading">
         <p className="hero-kicker mono">Md. Mahmudun Nobi / AI Engineer</p>
         <h1 id="hero-heading">Building intelligent systems that work beyond the prototype.</h1>
         <p className="hero-rule" aria-hidden="true" />
@@ -34,7 +34,7 @@ export default async function HomePage() {
         <ClockWidget />
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="highlights-heading">
         <h2 id="highlights-heading">Verified highlights</h2>
         <ul className="entry-list">
           <li>
@@ -62,7 +62,7 @@ export default async function HomePage() {
         </ul>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="projects-heading">
         <h2 id="projects-heading">Featured engineering work</h2>
         {featured.length === 0 ? (
           <p>
@@ -112,7 +112,7 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="approach-heading">
         <h2 id="approach-heading">How I work</h2>
         <ul className="principles-grid">
           <li>Reliability before novelty: systems must hold up outside the demo.</li>
@@ -122,7 +122,7 @@ export default async function HomePage() {
         </ul>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="research-heading">
         <h2 id="research-heading">Research</h2>
         <ul className="entry-list">
           {research.map((entry) => (
@@ -150,7 +150,7 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="writing-heading">
         <h2 id="writing-heading">Writing</h2>
         <p>
           Technical articles on agent architecture and evaluation are under review and will appear
@@ -158,7 +158,7 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="about-heading">
         <h2 id="about-heading">About</h2>
         <p>
           AI engineer in Dhaka working across agentic systems, applied ML, and production software
@@ -166,7 +166,7 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard labelledBy="contact-heading">
         <h2 id="contact-heading">Contact</h2>
         <p>
           The fastest way to reach me is by email at{" "}
