@@ -20,7 +20,7 @@ Bento grid 1→2→4 columns. Widgets: hero/clock (live Dhaka time + date, clien
 
 ## 3. Interactive explorers
 
-AURA layer explorer (click layers 1–5 → detail panel; layer 2 deep-links Runtime Core), CareerOS pipeline stepper (prev/next, progress, URL-hash deep links), tabbed case-study sections (Overview/Architecture/Evidence/Limitations) following published MDX order, restyled citation expander. Progressive enhancement: no-JS shows full stacked content. Keyboard-operable throughout.
+AURA layer explorer (click layers 1–5 → detail panel; layer 2 deep-links Runtime Core), CareerOS pipeline stepper (prev/next, progress, URL-hash deep links), tabbed case-study sections (Overview/Architecture/Evidence/Limitations) following published MDX order, restyled citation expander. Progressive enhancement: tab anchors work without JS (see note above). Keyboard-operable throughout. Without JS, tab anchors still navigate and every panel stays reachable (single-panel view); no content is JS-gated.
 
 ## 4. Motion system
 
