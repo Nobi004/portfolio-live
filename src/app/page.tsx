@@ -30,7 +30,7 @@ export default async function HomePage() {
         <p className="hero-note">Dhaka, Bangladesh · Open to relevant AI engineering opportunities</p>
       </GlassCard>
 
-      <GlassCard>
+      <GlassCard className="widget-clock-tile">
         <ClockWidget />
       </GlassCard>
 
@@ -44,7 +44,7 @@ export default async function HomePage() {
               </Link>
             </h3>
             <p className="entry-meta">IEEE ICEESI 2026 · DOI 10.1109/iceesi68020.2026.11583598</p>
-            <p>
+            <p className="clamp-3">
               An interpretable attention-guided hybrid framework for power line insulator fault
               detection, with citation verified against the publisher record.
             </p>
@@ -54,7 +54,7 @@ export default async function HomePage() {
               <a href="https://github.com/Nobi004">Public engineering work on GitHub</a>
             </h3>
             <p className="entry-meta">github.com/Nobi004 · identity confirmed</p>
-            <p>
+            <p className="clamp-3">
               Applied machine learning, document tooling, computer vision experiments, and this
               portfolio&apos;s own codebase — all public and inspectable.
             </p>
@@ -62,7 +62,7 @@ export default async function HomePage() {
         </ul>
       </GlassCard>
 
-      <GlassCard labelledBy="projects-heading">
+      <GlassCard className="widget-span widget-tall" labelledBy="projects-heading">
         <h2 id="projects-heading">Featured engineering work</h2>
         {featured.length === 0 ? (
           <p>
@@ -82,7 +82,7 @@ export default async function HomePage() {
                     Status: {flagship.status} · {flagship.stack.join(", ")}
                   </p>
                   <p>{flagship.tagline}</p>
-                  <p>{flagship.summary}</p>
+                  <p className="clamp-3">{flagship.summary}</p>
                   <p>
                     <Link href={`/projects/${flagship.slug}`}>Read the case study</Link>
                   </p>
@@ -112,7 +112,7 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard labelledBy="approach-heading">
+      <GlassCard className="widget-half widget-half-a" labelledBy="approach-heading">
         <h2 id="approach-heading">How I work</h2>
         <ul className="principles-grid">
           <li>Reliability before novelty: systems must hold up outside the demo.</li>
@@ -122,7 +122,7 @@ export default async function HomePage() {
         </ul>
       </GlassCard>
 
-      <GlassCard labelledBy="research-heading">
+      <GlassCard className="widget-half widget-half-b" labelledBy="research-heading">
         <h2 id="research-heading">Research</h2>
         <ul className="entry-list">
           {research.map((entry) => (
@@ -150,29 +150,33 @@ export default async function HomePage() {
         </p>
       </GlassCard>
 
-      <GlassCard labelledBy="writing-heading">
-        <h2 id="writing-heading">Writing</h2>
-        <p>
-          Technical articles on agent architecture and evaluation are under review and will appear
-          here once verified. <Link href="/writing">Writing archive</Link>
-        </p>
-      </GlassCard>
-
-      <GlassCard labelledBy="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>
-          AI engineer in Dhaka working across agentic systems, applied ML, and production software
-          — with an electrical engineering background. <Link href="/about">More about me</Link>
-        </p>
-      </GlassCard>
-
-      <GlassCard labelledBy="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <p>
-          The fastest way to reach me is by email at{" "}
-          <a href="mailto:mdmnb435@gmail.com">mdmnb435@gmail.com</a>.{" "}
-          <Link href="/contact">All contact options</Link>
-        </p>
+      <GlassCard className="widget-profile" labelledBy="profile-heading">
+        <h2 id="profile-heading">Profile</h2>
+        <div className="profile-minis">
+          <section aria-labelledby="about-heading">
+            <h3 id="about-heading">About</h3>
+            <p>
+              AI engineer in Dhaka working across agentic systems, applied ML, and production
+              software — with an electrical engineering background.{" "}
+              <Link href="/about">More about me</Link>
+            </p>
+          </section>
+          <section aria-labelledby="contact-heading">
+            <h3 id="contact-heading">Contact</h3>
+            <p>
+              The fastest way to reach me is by email at{" "}
+              <a href="mailto:mdmnb435@gmail.com">mdmnb435@gmail.com</a>.{" "}
+              <Link href="/contact">All contact options</Link>
+            </p>
+          </section>
+          <section aria-labelledby="writing-heading">
+            <h3 id="writing-heading">Writing</h3>
+            <p>
+              Technical articles on agent architecture and evaluation are under review and will
+              appear here once verified. <Link href="/writing">Writing archive</Link>
+            </p>
+          </section>
+        </div>
       </GlassCard>
     </div>
   );
