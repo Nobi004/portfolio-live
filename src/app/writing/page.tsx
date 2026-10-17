@@ -1,22 +1,24 @@
 import Link from "next/link";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageShell } from "@/components/layout/page-shell";
 import { getAllPublishedArticleMeta } from "@/lib/writing";
 
 export default async function WritingPage() {
   const articles = await getAllPublishedArticleMeta();
   if (articles.length === 0) {
     return (
-      <article>
-        <h1>Writing</h1>
+      <PageShell>
+        <PageHero kicker="Md. Mahmudun Nobi" title="Writing" />
         <p>Technical articles are under review and will appear here once verified.</p>
-      </article>
+      </PageShell>
     );
   }
   return (
-    <article>
-      <h1>Writing</h1>
-      <ul className="entry-list">
+    <PageShell>
+      <PageHero kicker="Md. Mahmudun Nobi" title="Writing" />
+      <ul className="entry-card-grid">
         {articles.map((a) => (
-          <li key={a.slug}>
+          <li key={a.slug} className="entry-card glass">
             <Link href={`/writing/${a.slug}`}>
               <h2>{a.title}</h2>
             </Link>
@@ -27,6 +29,6 @@ export default async function WritingPage() {
           </li>
         ))}
       </ul>
-    </article>
+    </PageShell>
   );
 }

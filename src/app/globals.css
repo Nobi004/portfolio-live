@@ -811,6 +811,32 @@ pre,
   padding-block: 5rem 4rem;
 }
 
+/* Page shell + hero + entry cards (site-wide OriginOS surfaces) */
+.page-shell {
+  max-width: 72rem;
+  margin-block: 2rem 3rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+}
+.page-hero { margin-bottom: 2rem; }
+.page-hero h1 { margin-top: 0.25rem; }
+.entry-card-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .entry-card-grid { grid-template-columns: 1fr 1fr; }
+}
+.entry-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+.entry-card h2 { margin-top: 0; font-size: 1.25rem; }
+
 /* Interactive explorers + tabbed case studies */
 .explorer {
   display: grid;

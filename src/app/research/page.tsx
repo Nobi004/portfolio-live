@@ -1,14 +1,16 @@
 import Link from "next/link";
+import { PageHero } from "@/components/layout/page-hero";
+import { PageShell } from "@/components/layout/page-shell";
 import { getAllPublishedResearchMeta } from "@/lib/research";
 
 export default async function ResearchPage() {
   const entries = await getAllPublishedResearchMeta();
   return (
-    <article>
-      <h1>Research</h1>
-      <ul className="entry-list">
+    <PageShell>
+      <PageHero kicker="Md. Mahmudun Nobi" title="Research" />
+      <ul className="entry-card-grid">
         {entries.map((e) => (
-          <li key={e.slug}>
+          <li key={e.slug} className="entry-card glass">
             <Link href={`/research/${e.slug}`}>
               <h2>{e.title}</h2>
             </Link>
@@ -21,6 +23,6 @@ export default async function ResearchPage() {
           </li>
         ))}
       </ul>
-    </article>
+    </PageShell>
   );
 }
