@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { PageShell } from "@/components/layout/page-shell";
 import { getPublishedProjectMeta } from "@/lib/projects";
 
 // No generateStaticParams while no project is published: Cache Components
@@ -37,6 +38,7 @@ export default async function ProjectDetailPage({
   const mod = await import(`@/content/projects/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
+    <PageShell>
     <article className="prose-stock">
       <div className="case-header">
       <p className="entry-meta">
@@ -63,5 +65,6 @@ export default async function ProjectDetailPage({
       </div>
       <Post />
     </article>
+    </PageShell>
   );
 }

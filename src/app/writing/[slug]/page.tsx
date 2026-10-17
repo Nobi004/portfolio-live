@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { PageShell } from "@/components/layout/page-shell";
 import { getPublishedArticleMeta } from "@/lib/writing";
 
 // No generateStaticParams while no article is published: Cache Components
@@ -37,6 +38,7 @@ export default async function ArticlePage({
   const mod = await import(`@/content/writing/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
+    <PageShell>
     <article className="prose-stock">
       <h1>{meta.title}</h1>
       <p className="entry-meta">
@@ -44,5 +46,6 @@ export default async function ArticlePage({
       </p>
       <Post />
     </article>
+    </PageShell>
   );
 }

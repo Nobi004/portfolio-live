@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { PageShell } from "@/components/layout/page-shell";
 import { getAllPublishedResearchMeta, getPublishedResearchMeta } from "@/lib/research";
 
 export async function generateStaticParams() {
@@ -36,6 +37,7 @@ export default async function ResearchDetailPage({
   const mod = await import(`@/content/research/${slug}.mdx`);
   const Post = mod.default as (props: { components?: Record<string, ReactNode> }) => ReactNode;
   return (
+    <PageShell>
     <article className="prose-stock">
       <p className="entry-meta">
         Status: {meta.status}
@@ -51,5 +53,6 @@ export default async function ResearchDetailPage({
         </section>
       ) : null}
     </article>
+    </PageShell>
   );
 }
