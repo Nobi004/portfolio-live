@@ -44,15 +44,17 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(36rem 36rem at 12% 8%, color-mix(in srgb, #dbeafe 8%, transparent), transparent 70%),
-    radial-gradient(32rem 32rem at 88% 18%, color-mix(in srgb, #ffedd5 8%, transparent), transparent 70%),
-    radial-gradient(40rem 40rem at 50% 100%, color-mix(in srgb, #d1fae5 8%, transparent), transparent 70%);
+    radial-gradient(60rem 60rem at 12% 10%, color-mix(in srgb, #93c5fd 24%, transparent), transparent 70%),
+    radial-gradient(55rem 55rem at 88% 16%, color-mix(in srgb, #c4b5fd 20%, transparent), transparent 70%),
+    radial-gradient(62rem 62rem at 72% 78%, color-mix(in srgb, #fda4af 18%, transparent), transparent 70%),
+    radial-gradient(50rem 50rem at 24% 92%, color-mix(in srgb, #a5f3fc 16%, transparent), transparent 70%);
 }
 .dark body::before {
   background:
-    radial-gradient(36rem 36rem at 12% 8%, color-mix(in srgb, #1e3a5f 12%, transparent), transparent 70%),
-    radial-gradient(32rem 32rem at 88% 18%, color-mix(in srgb, #4c1d95 12%, transparent), transparent 70%),
-    radial-gradient(40rem 40rem at 50% 100%, color-mix(in srgb, #134e4a 12%, transparent), transparent 70%);
+    radial-gradient(60rem 60rem at 12% 8%, color-mix(in srgb, #2563eb 22%, transparent), transparent 70%),
+    radial-gradient(55rem 55rem at 88% 18%, color-mix(in srgb, #7c3aed 20%, transparent), transparent 70%),
+    radial-gradient(62rem 62rem at 50% 100%, color-mix(in srgb, #0f766e 16%, transparent), transparent 70%),
+    radial-gradient(48rem 48rem at 76% 62%, color-mix(in srgb, #9f1239 14%, transparent), transparent 70%);
 }
 
 .glass {
