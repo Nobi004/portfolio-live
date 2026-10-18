@@ -21,6 +21,8 @@
   --space-section: clamp(3rem, 8vw, 6rem);
   --font-size-hero: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
   --font-size-section: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+  --glass-highlight: rgba(255, 255, 255, 0.45);
+  --glass-sheen: rgba(255, 255, 255, 0.08);
 }
 .dark {
   --background: #0c0e13;
@@ -35,6 +37,8 @@
   --border: rgba(238, 241, 246, 0.12);
   --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
   --rule: rgba(238, 241, 246, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.08);
+  --glass-sheen: rgba(255, 255, 255, 0.04);
 }
 
 body::before {
@@ -61,12 +65,13 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
 }
 @supports (backdrop-filter: blur(1px)) {
   .glass {
     background: var(--surface-glass);
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
   }
 }
 
@@ -427,8 +432,9 @@ pre,
 @supports (backdrop-filter: blur(1px)) {
   .footer-identity {
     background: var(--surface-glass);
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
   }
 }
 
@@ -455,8 +461,9 @@ pre,
 @supports (backdrop-filter: blur(1px)) {
   .site-footer a {
     background: var(--surface-glass);
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
   }
 }
 
@@ -625,8 +632,9 @@ pre,
 }
 @supports (backdrop-filter: blur(1px)) {
   .ask-panel {
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    box-shadow: var(--shadow-soft), inset 0 1px 0 var(--glass-highlight);
   }
 }
 .ask-close {
@@ -918,11 +926,19 @@ pre,
   padding: 0.5rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--surface-raised);
+  background: var(--surface);
   color: var(--foreground);
   font: inherit;
   font-size: 0.9375rem;
   cursor: pointer;
+}
+@supports (backdrop-filter: blur(1px)) {
+  .explorer-button {
+    background: var(--surface-glass);
+    backdrop-filter: blur(24px) saturate(1.7);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
+  }
 }
 
 .explorer-button:hover {
