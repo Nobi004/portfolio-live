@@ -9,7 +9,7 @@ export function SiteFooter() {
           <SystemGlyph />
           <span>Md. Mahmudun Nobi — AI Engineer, Dhaka, Bangladesh</span>
         </p>
-        <ul>
+        <ul className="footer-links">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -28,7 +28,7 @@ export function SiteFooter() {
           <li>
             <Link href="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="footer-external">
             <a href="https://github.com/Nobi004">GitHub</a>
           </li>
           <li>
