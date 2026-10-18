@@ -5,7 +5,7 @@ export function AuraArchitecture({ className }: { className?: string }) {
     <svg
       role="img"
       aria-labelledby="aura-arch-title aura-arch-desc"
-      viewBox="0 0 640 264"
+      viewBox="0 0 640 156"
       width="100%"
       className={className}
     >
@@ -36,7 +36,7 @@ export function AuraArchitecture({ className }: { className?: string }) {
               x={x + 59}
               y={27}
               textAnchor="middle"
-              fontSize={11}
+              fontSize={12}
               fill={active ? "var(--accent)" : "currentColor"}
             >
               {label}
@@ -48,12 +48,12 @@ export function AuraArchitecture({ className }: { className?: string }) {
         const x = 8 + i * 126;
         return (
           <g key={label}>
-            <rect x={x} y={114} width={118} height={80} rx={8} fill="none" stroke="currentColor" />
-            <text x={x + 59} y={159} textAnchor="middle" fontSize={13} fill="currentColor">
+            <rect x={x} y={64} width={118} height={84} rx={8} fill="none" stroke="currentColor" />
+            <text x={x + 59} y={111} textAnchor="middle" fontSize={14} fill="currentColor">
               {label}
             </text>
             {i < 4 && (
-              <text x={x + 122} y={159} textAnchor="middle" fontSize={16} fill="currentColor">
+              <text x={x + 122} y={111} textAnchor="middle" fontSize={18} fill="currentColor">
                 →
               </text>
             )}

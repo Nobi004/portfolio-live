@@ -74,7 +74,7 @@ export default async function HomePage() {
           <>
             {flagship ? (
               <article className="flagship-panel">
-                <div>
+                <div className="flagship-copy">
                   <h3>
                     <Link href={`/projects/${flagship.slug}`}>{flagship.title}</Link>
                   </h3>
@@ -84,10 +84,16 @@ export default async function HomePage() {
                   <p>{flagship.tagline}</p>
                   <p className="clamp-3">{flagship.summary}</p>
                   <p>
-                    <Link href={`/projects/${flagship.slug}`}>Read the case study</Link>
+                    <Link href={`/projects/${flagship.slug}`} className="button">
+                      Read the case study
+                    </Link>
                   </p>
                 </div>
-                {flagship.slug === "aura" ? <AuraArchitecture /> : null}
+                {flagship.slug === "aura" ? (
+                  <div className="flagship-diagram">
+                    <AuraArchitecture />
+                  </div>
+                ) : null}
               </article>
             ) : null}
             {restFeatured.length > 0 ? (

@@ -211,7 +211,6 @@ pre,
 
 .hero {
   padding-block: 4rem 3rem;
-  max-width: 46rem;
 }
 
 .hero-kicker {
@@ -287,6 +286,7 @@ pre,
 }
 .hero-signature > * {
   animation: hero-settle 300ms ease-out both;
+  max-width: 46rem;
 }
 .hero-signature > *:nth-child(2) { animation-delay: 60ms; }
 .hero-signature > *:nth-child(3) { animation-delay: 120ms; }
@@ -459,8 +459,23 @@ pre,
   display: grid;
   gap: 1.5rem;
 }
-@media (min-width: 900px) {
-  .flagship-panel { grid-template-columns: 1.1fr 1fr; align-items: center; }
+.flagship-copy {
+  display: grid;
+  gap: 0.75rem;
+}
+.flagship-copy > * {
+  margin: 0;
+}
+.flagship-diagram {
+  overflow-x: auto;
+}
+.flagship-panel svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 640px) {
+  .flagship-panel svg { min-width: 480px; }
 }
 .principles-grid {
   list-style: none; margin: 0; padding: 0;
@@ -765,10 +780,11 @@ pre,
   gap: 1rem;
   grid-template-columns: 1fr;
   grid-auto-rows: minmax(min-content, auto);
+  overflow-wrap: break-word;
   padding-block: 2rem 3rem;
 }
 @media (min-width: 768px) {
-  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .widget-span,
   .widget-wide,
   .widget-half,
@@ -776,7 +792,7 @@ pre,
   .widget-clock-tile { align-self: start; }
 }
 @media (min-width: 1280px) {
-  .bento-grid { grid-template-columns: repeat(4, 1fr); }
+  .bento-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .bento-grid > * { grid-column: auto; grid-row: auto; }
   .hero-signature { grid-column: 1 / -1; grid-row: 1; }
   .widget-clock-tile { grid-column: 1; grid-row: 2 / span 2; align-self: stretch; }
