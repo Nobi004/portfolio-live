@@ -7,7 +7,7 @@
   --foreground: #1a1d21;
   --surface: rgba(252, 249, 243, 0.72);
   --surface-raised: rgba(255, 253, 249, 0.9);
-  --surface-glass: rgba(255, 255, 255, 0.6);
+  --surface-glass: rgba(250, 250, 251, 0.5);
   --secondary: #4b5563;
   --accent: #0b5fff;
   --accent-violet: #5b21b6;
@@ -21,15 +21,15 @@
   --space-section: clamp(3rem, 8vw, 6rem);
   --font-size-hero: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
   --font-size-section: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
-  --glass-highlight: rgba(255, 255, 255, 0.45);
-  --glass-sheen: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.3);
+  --glass-edge: rgba(255, 255, 255, 0.35);
 }
 .dark {
   --background: #0c0e13;
   --foreground: #eef1f6;
   --surface: rgba(22, 25, 33, 0.72);
   --surface-raised: rgba(28, 32, 42, 0.9);
-  --surface-glass: rgba(22, 25, 33, 0.55);
+  --surface-glass: rgba(30, 30, 34, 0.5);
   --secondary: #aab2c0;
   --accent: #7dd3fc;
   --accent-violet: #c4b5fd;
@@ -38,7 +38,7 @@
   --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
   --rule: rgba(238, 241, 246, 0.12);
   --glass-highlight: rgba(255, 255, 255, 0.08);
-  --glass-sheen: rgba(255, 255, 255, 0.04);
+  --glass-edge: rgba(255, 255, 255, 0.14);
 }
 
 body::before {
@@ -67,13 +67,14 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
 }
 @supports (backdrop-filter: blur(1px)) {
   .glass {
     background: var(--surface-glass);
-    backdrop-filter: blur(24px) saturate(1.7);
-    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    border-color: var(--glass-edge);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
   }
 }
 
@@ -434,9 +435,10 @@ pre,
 @supports (backdrop-filter: blur(1px)) {
   .footer-identity {
     background: var(--surface-glass);
-    backdrop-filter: blur(24px) saturate(1.7);
-    -webkit-backdrop-filter: blur(24px) saturate(1.7);
-    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
+    border-color: var(--glass-edge);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
   }
 }
 
@@ -463,9 +465,10 @@ pre,
 @supports (backdrop-filter: blur(1px)) {
   .site-footer a {
     background: var(--surface-glass);
-    backdrop-filter: blur(24px) saturate(1.7);
-    -webkit-backdrop-filter: blur(24px) saturate(1.7);
-    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
+    border-color: var(--glass-edge);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
   }
 }
 
@@ -634,9 +637,10 @@ pre,
 }
 @supports (backdrop-filter: blur(1px)) {
   .ask-panel {
-    backdrop-filter: blur(24px) saturate(1.7);
-    -webkit-backdrop-filter: blur(24px) saturate(1.7);
-    box-shadow: var(--shadow-soft), inset 0 1px 0 var(--glass-highlight);
+    border-color: var(--glass-edge);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
   }
 }
 .ask-close {
@@ -937,9 +941,10 @@ pre,
 @supports (backdrop-filter: blur(1px)) {
   .explorer-button {
     background: var(--surface-glass);
-    backdrop-filter: blur(24px) saturate(1.7);
-    -webkit-backdrop-filter: blur(24px) saturate(1.7);
-    box-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 0 0 1px var(--glass-sheen);
+    border-color: var(--glass-edge);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
   }
 }
 
