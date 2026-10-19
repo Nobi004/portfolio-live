@@ -3,20 +3,20 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #eef2f7;
+  --background: #f3ebdc;
   --foreground: #1a1d21;
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-raised: rgba(255, 255, 255, 0.9);
+  --surface: rgba(252, 249, 243, 0.72);
+  --surface-raised: rgba(255, 253, 249, 0.9);
   --surface-glass: rgba(255, 255, 255, 0.6);
   --secondary: #4b5563;
   --accent: #0b5fff;
   --accent-violet: #5b21b6;
   --accent-coral: #e11d48;
-  --border: rgba(26, 29, 33, 0.1);
-  --shadow-soft: 0 8px 32px rgba(27, 38, 59, 0.1);
+  --border: rgba(74, 55, 30, 0.12);
+  --shadow-soft: 0 8px 32px rgba(74, 50, 20, 0.1);
   --radius-lg: 24px;
   --radius-md: 16px;
-  --rule: rgba(26, 29, 33, 0.1);
+  --rule: rgba(74, 55, 30, 0.12);
   --radius: 8px;
   --space-section: clamp(3rem, 8vw, 6rem);
   --font-size-hero: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
@@ -48,10 +48,12 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60rem 60rem at 12% 10%, color-mix(in srgb, #93c5fd 24%, transparent), transparent 70%),
-    radial-gradient(55rem 55rem at 88% 16%, color-mix(in srgb, #c4b5fd 20%, transparent), transparent 70%),
-    radial-gradient(62rem 62rem at 72% 78%, color-mix(in srgb, #fda4af 18%, transparent), transparent 70%),
-    radial-gradient(50rem 50rem at 24% 92%, color-mix(in srgb, #a5f3fc 16%, transparent), transparent 70%);
+    radial-gradient(70rem 42rem at 15% 6%, color-mix(in srgb, #fffdf7 60%, transparent), transparent 70%),
+    radial-gradient(50rem 30rem at 55% 15%, color-mix(in srgb, #f9edd4 55%, transparent), transparent 75%),
+    radial-gradient(60rem 55rem at 92% 25%, color-mix(in srgb, #e9c98c 50%, transparent), transparent 70%),
+    radial-gradient(75rem 60rem at 5% 85%, color-mix(in srgb, #d2a24c 40%, transparent), transparent 72%),
+    radial-gradient(45rem 35rem at 45% 100%, color-mix(in srgb, #e0b978 35%, transparent), transparent 70%),
+    radial-gradient(55rem 45rem at 95% 95%, color-mix(in srgb, #8a5a2b 28%, transparent), transparent 70%);
 }
 .dark body::before {
   background:
